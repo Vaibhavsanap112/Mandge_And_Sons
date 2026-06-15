@@ -1,0 +1,59 @@
+.stats {
+  background: #06152e;
+  padding: 15px 7%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.card {
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: -10px;
+  width: 1px;
+  height: 80%;
+  background: rgba(212, 175, 55, 0.4);
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.card p {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #d4af37;
+}
+
+@media (max-width: 992px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .card:not(:last-child)::after {
+    display: none;
+  }
+}

@@ -1,0 +1,162 @@
+.section {
+  padding: 100px 0;
+  background: #f8f9fc;
+}
+
+.container {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.heading span {
+  color: #d4af37;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.heading h2 {
+  margin-top: 15px;
+  color: #06152e;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.tab {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  background: white;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.tab:hover {
+  transform: translateY(-3px);
+}
+
+.active {
+  background: #d4af37;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 420px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 25px;
+
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.8)
+  );
+
+  transition: 0.4s;
+}
+
+.overlay h3 {
+  color: white;
+  margin-bottom: 15px;
+
+  transform: translateY(30px);
+  transition: 0.4s;
+}
+
+.overlay button {
+  width: fit-content;
+
+  padding: 10px 16px;
+  border: none;
+
+  background: #d4af37;
+  color: white;
+
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition: 0.4s;
+}
+
+.card:hover .overlay h3 {
+  transform: translateY(0);
+}
+
+.card:hover .overlay button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tabs {
+    gap: 10px;
+  }
+
+  .tab {
+    width: 100%;
+  }
+}
