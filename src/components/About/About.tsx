@@ -34,9 +34,11 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className={styles.imagePlaceholder}>
-            Director Image
-          </div>
+          <img
+  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80"
+  alt="Director"
+  className={styles.directorImage}
+/>
         </motion.div>
 
         {/* Content */}
