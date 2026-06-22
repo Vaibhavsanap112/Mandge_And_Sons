@@ -32,24 +32,48 @@ const milestones = [
 
 export default function Journey() {
   return (
-    <section className={styles.section}>
+    <section id="journey" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.heading}>
+        <motion.div
+          className={styles.heading}
+          initial={{
+            opacity: 0,
+            y: 80,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
+        >
           <span>OUR JOURNEY</span>
           <h2>Building Excellence Through The Years</h2>
-        </div>
+        </motion.div>
 
         <div className={styles.timeline}>
           {milestones.map((item, index) => (
             <motion.div
               key={index}
               className={styles.item}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{
+                opacity: 0,
+                scale: 0.7,
+                y: 80,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
               viewport={{ once: true }}
               transition={{
+                duration: 1,
+                ease: "easeOut",
                 delay: index * 0.15,
-                duration: 0.5,
               }}
             >
               <div className={styles.circle}></div>

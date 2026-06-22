@@ -76,26 +76,36 @@
 }
 
 .title {
-   font-size: clamp(3rem, 8vw, 5rem);
-  font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 800;
   margin-bottom: 20px;
   line-height: 1.1;
 
   background: linear-gradient(
     90deg,
     #ffffff,
+    #f5d06f,
+    #ffffff,
     #d4af37,
     #ffffff
   );
 
-  background-size: 200% auto;
+  background-size: 300% auto;
+
   -webkit-background-clip: text;
   color: transparent;
 
+  text-shadow:
+    0 2px 0 rgba(255,255,255,0.2),
+    0 4px 10px rgba(212,175,55,0.25),
+    0 8px 25px rgba(212,175,55,0.35);
+
   opacity: 0;
+
   animation:
     zoomIn 1s ease forwards,
-    shine 6s linear infinite;
+    shine 8s linear infinite,
+    floatText 4s ease-in-out infinite;
 
   animation-delay: 0.3s;
 }
@@ -327,5 +337,36 @@
   .tagline {
     font-size: 12px;
     letter-spacing: 2px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes floatText {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
   }
 }

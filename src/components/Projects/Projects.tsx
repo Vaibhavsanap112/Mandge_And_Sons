@@ -16,22 +16,22 @@ const projects = [
   {
     title: "Luxury Villa Interior",
     category: "Interiors",
-    image: "https://picsum.photos/600/500?random=21",
+    image:  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80",
   },
   {
     title: "Premium Township",
     category: "Real Estate",
-    image: "https://picsum.photos/600/500?random=22",
+   image:"https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=1200&q=80",
   },
   {
     title: "Colorsply Facility",
     category: "Manufacturing",
-    image: "https://picsum.photos/600/500?random=23",
+     image:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80",
   },
   {
     title: "Commercial Complex",
     category: "Development",
-    image: "https://picsum.photos/600/500?random=24",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=80",
   },
 ];
 
@@ -46,13 +46,23 @@ export default function Projects() {
         );
 
   return (
-    <section className={styles.section}>
+    <section id="projects" className={styles.section}>
       <div className={styles.container}>
         <motion.div
           className={styles.heading}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{
+            opacity: 0,
+            scale: 0.9,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+          }}
           viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
         >
           <span>FEATURED PROJECTS</span>
           <h2>Our Landmark Creations</h2>
@@ -84,19 +94,22 @@ export default function Projects() {
                 className={styles.card}
                 initial={{
                   opacity: 0,
-                  y: 50,
+                  scale: 0.8,
+                  filter: "blur(10px)",
                 }}
                 animate={{
                   opacity: 1,
-                  y: 0,
+                  scale: 1,
+                  filter: "blur(0px)",
                 }}
                 exit={{
                   opacity: 0,
                   scale: 0.9,
                 }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
+                  duration: 0.8,
+                  ease: "easeOut",
+                  delay: index * 0.12,
                 }}
               >
                 <img

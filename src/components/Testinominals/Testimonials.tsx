@@ -1,11 +1,10 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
-
 import styles from "./Testimonials.module.css";
 
 const testimonials = [
@@ -35,12 +34,27 @@ export default function Testimonials() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>
+        <motion.h2
+          className={styles.heading}
+          initial={{
+            opacity: 0,
+            y: 80,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
+        >
           WHAT OUR CLIENTS SAY
-        </h2>
+        </motion.h2>
 
         <Swiper
-         modules={[Autoplay]}
+          modules={[Autoplay]}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
@@ -61,7 +75,25 @@ export default function Testimonials() {
         >
           {testimonials.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className={styles.card}>
+              <motion.div
+                className={styles.card}
+                initial={{
+                  opacity: 0,
+                  y: 100,
+                  scale: 0.9,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.8,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
+              >
                 <div className={styles.stars}>
                   ★★★★★
                 </div>
@@ -72,7 +104,7 @@ export default function Testimonials() {
                   <h4>{item.name}</h4>
                   <span>{item.role}</span>
                 </div>
-              </div>
+              </motion.div>
             </SwiperSlide>
           ))}
         </Swiper>

@@ -96,3 +96,28 @@
     min-height: 180px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  transition: all 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-12px);
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 60px;
+}

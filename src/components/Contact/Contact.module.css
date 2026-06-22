@@ -105,3 +105,26 @@
     font-size: 1.4rem;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

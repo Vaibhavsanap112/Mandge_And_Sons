@@ -24,30 +24,36 @@ const values = [
 
 export default function About() {
   return (
-    <section className={styles.about}>
+    <section id="about" className={styles.about}>
       <div className={styles.container}>
         {/* Left Image */}
         <motion.div
           className={styles.imageWrapper}
-          initial={{ opacity: 0, x: -80 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
         >
           <img
-  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80"
-  alt="Director"
-  className={styles.directorImage}
-/>
+            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80"
+            alt="Director"
+            className={styles.directorImage}
+          />
         </motion.div>
 
         {/* Content */}
         <motion.div
           className={styles.content}
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 150 }}
+          whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
         >
           <span className={styles.smallTitle}>
             ABOUT MANDGE & SONS
@@ -83,10 +89,14 @@ export default function About() {
         {/* Values */}
         <motion.div
           className={styles.values}
-          initial={{ opacity: 0, x: 80 }}
+          initial={{ opacity: 0, x: -150 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+            ease: "easeOut",
+          }}
         >
           {values.map((item, index) => (
             <div key={index} className={styles.valueCard}>

@@ -39,15 +39,24 @@ export default function Stats() {
           <motion.div
             key={index}
             className={styles.card}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{
+              opacity: 0,
+              x: index % 2 === 0 ? -80 : 80,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
             viewport={{ once: true }}
             transition={{
+              duration: 0.8,
+              ease: "easeOut",
               delay: index * 0.1,
-              duration: 0.5,
             }}
           >
-            <div className={styles.icon}>{item.icon}</div>
+            <div className={styles.icon}>
+              {item.icon}
+            </div>
 
             <h2>{item.number}</h2>
 

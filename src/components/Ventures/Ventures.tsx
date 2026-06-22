@@ -8,31 +8,31 @@ const ventures = [
     title: "Colorsply",
     description:
       "Premium plywood and interior solutions delivering quality and durability.",
-    image: "https://picsum.photos/500/350?random=11",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=80",
   },
   {
     title: "Mandge Estate",
     description:
       "Helping customers find valuable real estate opportunities with confidence.",
-    image: "https://picsum.photos/500/350?random=12",
+   image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1000&q=80",
   },
   {
     title: "Mandge Design Studio",
     description:
       "Creative architecture and interior design focused on modern living.",
-    image: "https://picsum.photos/500/350?random=13",
+   image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1000&q=80",
   },
   {
     title: "OM Plywood & Hardware",
     description:
       "Trusted supplier of hardware, plywood and construction materials.",
-    image: "https://picsum.photos/500/350?random=14",
+   image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=80",
   },
   {
     title: "Mandge Builders & Developers",
     description:
       "Creating residential and commercial spaces with excellence and trust.",
-    image: "https://picsum.photos/500/350?random=15",
+   image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function Ventures() {
 
 
 
-    <section className={styles.ventures}>
+    <section id="ventures" className={styles.ventures}>
       <div className={styles.heading}>
         <span>OUR VENTURES</span>
         <h2>Building Success Across Industries</h2>
@@ -55,13 +55,20 @@ export default function Ventures() {
           <motion.div
             key={index}
             className={styles.card}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.1,
-            }}
+           initial={{
+  opacity: 0,
+  x: index % 2 === 0 ? -150 : 150,
+}}
+whileInView={{
+  opacity: 1,
+  x: 0,
+}}
+viewport={{ once: true }}
+transition={{
+  duration: 1,
+  ease: "easeOut",
+  delay: index * 0.1,
+}}
           >
             <div className={styles.imageWrapper}>
               <img

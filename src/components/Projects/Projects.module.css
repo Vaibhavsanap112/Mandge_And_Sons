@@ -160,3 +160,28 @@
     width: 100%;
   }
 }
+
+
+
+
+
+
+
+
+
+.card {
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.image {
+  transition: transform 0.6s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.08);
+}

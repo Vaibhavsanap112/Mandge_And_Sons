@@ -5,64 +5,88 @@ import styles from "./Contact.module.css";
 
 export default function Contact() {
   return (
-    <section className={styles.contact}>
+    <section id="contact" className={styles.contact}>
       <div className={styles.container}>
         <motion.h2
           className={styles.heading}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 80 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
         >
           LET'S BUILD SOMETHING EXTRAORDINARY TOGETHER
         </motion.h2>
 
-        <motion.form
-          className={styles.form}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <input type="text" placeholder="Your Name" />
+        <div className={styles.content}>
+          {/* Contact Info */}
+          <motion.div
+            className={styles.info}
+            initial={{ opacity: 0, x: -150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+            }}
+          >
+            <div>
+              📞 <span>+91 12345 67890</span>
+            </div>
 
-          <input type="text" placeholder="Phone Number" />
+            <div>
+              ✉️ <span>info@mandgeandsons.com</span>
+            </div>
 
-          <input type="email" placeholder="Email Address" />
+            <div>
+              📍 <span>Nashik, Maharashtra, India</span>
+            </div>
 
-          <select>
-            <option>Select Business Interest</option>
-            <option>Real Estate</option>
-            <option>Interior Design</option>
-            <option>Manufacturing</option>
-            <option>Construction</option>
-          </select>
+            <div>
+              💬 <span>Chat on WhatsApp</span>
+            </div>
+          </motion.div>
 
-          <button type="submit">
-            SEND ENQUIRY →
-          </button>
-        </motion.form>
+          {/* Form */}
+          <motion.form
+            className={styles.form}
+            initial={{ opacity: 0, x: 150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              ease: "easeOut",
+            }}
+          >
+            <input type="text" placeholder="Your Name" />
 
-        <motion.div
-          className={styles.info}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div>
-            📞 <span>+91 12345 67890</span>
-          </div>
+            <input type="text" placeholder="Phone Number" />
 
-          <div>
-            ✉️ <span>info@mandgeandsons.com</span>
-          </div>
+            <input type="email" placeholder="Email Address" />
 
-          <div>
-            📍 <span>Nashik, Maharashtra, India</span>
-          </div>
+            <select>
+              <option>Select Business Interest</option>
+              <option>Real Estate</option>
+              <option>Interior Design</option>
+              <option>Manufacturing</option>
+              <option>Construction</option>
+            </select>
 
-          <div>
-            💬 <span>Chat on WhatsApp</span>
-          </div>
-        </motion.div>
+            <motion.button
+              type="submit"
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+            >
+              SEND ENQUIRY →
+            </motion.button>
+          </motion.form>
+        </div>
       </div>
     </section>
   );
