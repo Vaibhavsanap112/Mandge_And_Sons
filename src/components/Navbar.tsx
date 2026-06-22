@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./Navbar.module.css";
-import { Link } from "react-scroll";
-
+import {Link} from "react-scroll"
 export default function Navbar() {
 const [scrolled, setScrolled] = useState(false);
 const [menuOpen, setMenuOpen] = useState(false);
