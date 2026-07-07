@@ -100,7 +100,8 @@ export default function About() {
         >
           {values.map((item, index) => (
             <div key={index} className={styles.valueCard}>
-              <div className={styles.icon}>◎</div>
+              {/* Changed from circle symbol to a black star */}
+              <div className={styles.icon}>★</div>
 
               <div>
                 <h4>{item.title}</h4>

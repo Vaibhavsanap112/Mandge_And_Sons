@@ -1,11 +1,13 @@
 .ventures {
-  padding: 100px 7%;
+  padding: 100px 0; /* Removed side padding so slider spans edge-to-edge */
   background: #f8f9fc;
+  overflow: hidden;
 }
 
 .heading {
   text-align: center;
   margin-bottom: 60px;
+  padding: 0 20px;
 }
 
 .heading span {
@@ -17,48 +19,68 @@
 
 .heading h2 {
   margin-top: 15px;
-  font-size: 42px;
+  font-size: clamp(28px, 4vw, 42px);
   color: #06152e;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* ==========================================
+   Continuous Sliding Track
+=========================================== */
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+}
 
+.track {
+  display: flex;
+  width: max-content;
   gap: 30px;
+  /* Adjust the 25s (25 seconds) to make it faster or slower */
+  animation: scrollMarquee 25s linear infinite;
+}
 
-  max-width: 1400px;
-
-  margin: 60px auto 0;
+/* Stops the animation immediately when your cursor hovers over ANY part of the slider track */
+.sliderContainer:hover .track {
+  animation-play-state: paused;
 }
 
 .card {
   background: white;
   border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  width: 320px; /* Locked explicit width for layout predictability */
+  flex-shrink: 0;
 }
 
+/* Individual card interactive behavior */
 .card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .imageWrapper {
-  height: 220px;
+  height: 200px;
   overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: contain;
-
-  transition: 0.6s;
+  transition: transform 0.6s ease;
 }
 
 .card:hover .image {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 .content {
@@ -68,85 +90,63 @@
 .content h3 {
   color: #06152e;
   margin-bottom: 12px;
-  font-size: 20px;
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .content p {
   color: #666;
-  line-height: 1.7;
-  margin-bottom: 20px;
+  line-height: 1.6;
+  margin-bottom: 24px;
   font-size: 14px;
+  height: 70px; /* Keeps card layout heights strictly uniform */
+  overflow: hidden;
 }
 
 .btn {
-  border: none;
+  display: inline-block;
   background: #d4af37;
   color: #06152e;
-  padding: 12px 20px;
+  padding: 11px 24px;
   font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
   border-radius: 8px;
-  transition: 0.3s;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .btn:hover {
-  transform: translateX(5px);
+  opacity: 0.9;
 }
 
-@media (max-width: 1400px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 992px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .heading h2 {
-    font-size: 34px;
-  }
-}
-
-@media (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .ventures {
-    padding: 70px 5%;
-  }
-
-  .heading h2 {
-    font-size: 28px;
-  }
-}
-
-/* Tablet */
-@media (max-width: 992px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@keyframes floating {
+/* ==========================================
+   Animation Engine
+=========================================== */
+@keyframes scrollMarquee {
   0% {
-    transform: translateY(0px);
+    transform: translateX(0);
   }
-
-  50% {
-    transform: translateY(-10px);
-  }
-
   100% {
-    transform: translateY(0px);
+    /* Moves exactly halfway across the doubled array track for a seamless reset loop */
+    transform: translateX(calc(-50% - 15px)); 
+  }
+}
+
+/* ==========================================
+   Responsive Adaptations
+=========================================== */
+@media (max-width: 768px) {
+  .ventures {
+    padding: 60px 0;
+  }
+  .track {
+    gap: 20px;
+    animation-duration: 18s; /* Speeds up tracking slightly on narrower screens */
+  }
+  @keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 10px)); }
+  }
+  .card {
+    width: 280px;
   }
 }
