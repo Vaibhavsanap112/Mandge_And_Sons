@@ -1,39 +1,46 @@
 "use client";
 
 import { motion } from "framer-motion";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 import styles from "./Stats.module.css";
 
 const stats = [
   {
-    number: "30+",
+    number: 30,
+    suffix: "+",
     label: "YEARS OF LEGACY",
-    icon: "🏆",
   },
   {
-    number: "5",
+    number: 5,
+    suffix: "",
     label: "BUSINESS VERTICALS",
-    icon: "🏢",
   },
   {
-    number: "1000+",
+    number: 1000,
+    suffix: "+",
     label: "HAPPY CLIENTS",
-    icon: "👥",
   },
   {
-    number: "500+",
+    number: 500,
+    suffix: "+",
     label: "PROJECTS DELIVERED",
-    icon: "📋",
   },
   {
-    number: "50+",
+    number: 50,
+    suffix: "+",
     label: "CHANNEL PARTNERS",
-    icon: "🤝",
   },
 ];
 
 export default function Stats() {
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.4,
+  });
+
   return (
-    <section className={styles.stats}>
+    <section className={styles.stats} ref={ref}>
       <div className={styles.container}>
         {stats.map((item, index) => (
           <motion.div
@@ -41,24 +48,28 @@ export default function Stats() {
             className={styles.card}
             initial={{
               opacity: 0,
-              x: index % 2 === 0 ? -80 : 80,
+              y: 40,
             }}
             whileInView={{
               opacity: 1,
-              x: 0,
+              y: 0,
             }}
             viewport={{ once: true }}
             transition={{
-              duration: 0.8,
-              ease: "easeOut",
-              delay: index * 0.1,
+              duration: 0.7,
+              delay: index * 0.15,
             }}
           >
-            <div className={styles.icon}>
-              {item.icon}
-            </div>
-
-            <h2>{item.number}</h2>
+            <h2>
+              {inView && (
+                <CountUp
+                  start={0}
+                  end={item.number}
+                  duration={2.5}
+                />
+              )}
+              {item.suffix}
+            </h2>
 
             <p>{item.label}</p>
           </motion.div>

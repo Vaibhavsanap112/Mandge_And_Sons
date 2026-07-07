@@ -1,25 +1,25 @@
+
 .navbar {
-position: fixed;
-top: 0;
-left: 0;
-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-padding: 18px 7%;
-z-index: 1000;
+  padding: 18px 7%;
+  z-index: 1000;
 
-transition: all 0.4s ease;
+  background: rgba(4, 21, 47, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+
+  transition: all 0.4s ease;
 }
 
-.scrolled {
-background: rgba(4, 21, 47, 0.95);
-backdrop-filter: blur(12px);
 
-box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-}
 
 .logo {
 display: flex;
@@ -47,7 +47,7 @@ list-style: none;
 color: white;
 cursor: pointer;
 text-decoration: none;
-font-weight: 500;
+font-weight: 800;
 
 position: relative;
 }
@@ -117,10 +117,11 @@ transform: translateY(-3px);
 .mobileMenu {
   position: fixed;
   top: 0;
-  left: -100%;
-  cursor: pointer;
+  right: -70%;   /* Hide it outside the screen */
+  left: auto;
 
-  width: 100%;
+  width: 70%;    /* Opens on 70% of the screen */
+  max-width: 320px;
   height: 100vh;
 
   background: #04152f;
@@ -129,11 +130,14 @@ transform: translateY(-3px);
   flex-direction: column;
   gap: 30px;
 
-  padding: 100px 40px;
+  padding: 30px;
 
-  transition: 0.4s ease;
-
+  transition: right 0.4s ease;
   z-index: 999;
+}
+
+.mobileMenuOpen {
+  right: 0;
 }
 
 .mobileMenuOpen {

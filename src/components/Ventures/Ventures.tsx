@@ -2,38 +2,41 @@
 
 import { motion } from "framer-motion";
 import styles from "./Ventures.module.css";
+import { image, img } from "framer-motion/client";
+import Link from "next/link";
 
 const ventures = [
   {
-    title: "Colorsply",
+    title: "Colorsply Industries",
     description:
       "Premium plywood and interior solutions delivering quality and durability.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=80",
+    image: "/Colorsply_logo_PNG.png",
+     link: "/ventures/colorsply",
   },
   {
     title: "Mandge Estate",
     description:
       "Helping customers find valuable real estate opportunities with confidence.",
-   image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1000&q=80",
+   image: "Mandge_Estate_PNG_LOGO.png",
+    link: "/ventures/MandgeEstate",
   },
   {
     title: "Mandge Design Studio",
     description:
       "Creative architecture and interior design focused on modern living.",
-   image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=1000&q=80",
+   image: "/MandgeDesingStudio.jpeg",
+   link: "/ventures/MandgeDesignStudio",
   },
   {
     title: "OM Plywood & Hardware",
     description:
       "Trusted supplier of hardware, plywood and construction materials.",
-   image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&q=80",
+    image:"/om_plywood_and_Hardware.png",
+        link: "/ventures/OmPlay",
+
+    
   },
-  {
-    title: "Mandge Builders & Developers",
-    description:
-      "Creating residential and commercial spaces with excellence and trust.",
-   image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=80",
-  },
+  
 ];
 
 export default function Ventures() {
@@ -82,9 +85,12 @@ transition={{
               <h3>{venture.title}</h3>
               <p>{venture.description}</p>
 
-              <button className={styles.btn}>
-                Explore →
-              </button>
+ <Link
+  href={venture.link}
+  className={styles.btn}
+>
+  Explore
+</Link>
             </div>
           </motion.div>
         ))}

@@ -1,0 +1,897 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap");
+
+/* =======================================
+   TOKENS
+======================================= */
+
+.page {
+  --ink: #150f0b;
+  --walnut-deep: #1c130d;
+  --walnut: #2a1c13;
+  --oak: #c17f3f;
+  --oak-light: #e3b273;
+  --copper: #c9752b;
+  --copper-deep: #8a4d1c;
+  --cream: #f4ead9;
+  --paper: #efe3cf;
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* =======================================
+   GRAIN DIVIDER (signature element)
+======================================= */
+
+.grainDivider {
+  position: relative;
+  height: 16px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--walnut) 0px,
+    var(--walnut) 38px,
+    var(--oak) 38px,
+    var(--oak) 46px,
+    var(--copper-deep) 46px,
+    var(--copper-deep) 56px,
+    var(--walnut-deep) 56px,
+    var(--walnut-deep) 110px
+  );
+  opacity: 0.9;
+}
+
+.grainDividerFlip {
+  opacity: 0.55;
+}
+
+.miniGrain {
+  width: 130px;
+  height: 10px;
+  margin: 34px auto;
+  border-radius: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--oak) 0px,
+    var(--oak) 14px,
+    var(--copper) 14px,
+    var(--copper) 20px,
+    var(--oak-light) 20px,
+    var(--oak-light) 30px
+  );
+}
+
+/* =======================================
+   HERO
+======================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px 100px;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--ink) 0%, var(--walnut-deep) 100%);
+}
+
+.heroBandOne,
+.heroBandTwo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+}
+
+.heroBandOne {
+  width: 640px;
+  height: 320px;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(193, 127, 63, 0.4), transparent 70%);
+}
+
+.heroBandTwo {
+  width: 520px;
+  height: 260px;
+  bottom: -40px;
+  left: 55%;
+  background: radial-gradient(ellipse, rgba(201, 117, 43, 0.3), transparent 70%);
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(244, 234, 217, 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 5;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logoPlate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f8f5ef;
+
+  padding: 3px 28px;
+
+  border-radius: 8px;
+
+  border: 2px solid rgba(193,127,63,.25);
+
+  width: fit-content;
+
+  box-shadow:
+      0 10px 25px rgba(0,0,0,.15);
+}
+
+.logo {
+    width: 560px;
+    height: 310px;
+
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.heroTag {
+  margin-top: 38px;
+  color: var(--oak-light);
+  letter-spacing: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.heroHeading {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6.5vw, 5.4rem);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -1px;
+  color: var(--cream);
+}
+
+.heroText {
+  margin-top: 26px;
+  max-width: 620px;
+  color: rgba(244, 234, 217, 0.78);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.chipRow {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 560px;
+}
+
+.chip {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(193, 127, 63, 0.35);
+  background: rgba(244, 234, 217, 0.03);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--oak-light);
+}
+
+.heroButton {
+  margin-top: 42px;
+  padding: 17px 40px;
+  background: linear-gradient(135deg, var(--copper), var(--copper-deep));
+  color: var(--cream);
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 15px 40px rgba(201, 117, 43, 0.3);
+}
+
+.heroButton:focus-visible,
+.callBtn:focus-visible,
+.whatsappBtn:focus-visible {
+  outline: 2px solid var(--oak-light);
+  outline-offset: 3px;
+}
+
+/* =======================================
+   ABOUT
+======================================= */
+
+.about {
+  padding: 120px 8%;
+  display: flex;
+  justify-content: center;
+  background: var(--walnut-deep);
+}
+
+.aboutContent {
+  max-width: 900px;
+  text-align: center;
+}
+
+.smallTitle {
+  color: var(--oak-light);
+  font-family: var(--font-mono);
+  letter-spacing: 3.5px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.aboutContent h2 {
+  margin-top: 18px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.aboutContent p {
+  font-size: 1.04rem;
+  line-height: 1.9;
+  color: rgba(244, 234, 217, 0.75);
+  margin-bottom: 24px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* =======================================
+   WHY CHOOSE US
+======================================= */
+
+.whySection {
+  padding: 130px 8% 100px;
+  background: var(--ink);
+}
+
+.whyHeading {
+  max-width: 720px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.whyHeading h2 {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.whyHeading p {
+  margin-top: 18px;
+  color: rgba(244, 234, 217, 0.7);
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.whyGrid {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 26px;
+}
+
+.whyCard {
+  position: relative;
+  overflow: hidden;
+  padding: 32px 26px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, var(--walnut), var(--walnut-deep));
+  border: 1px solid rgba(193, 127, 63, 0.18);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whyCard:hover {
+  border-color: rgba(193, 127, 63, 0.45);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+}
+
+.cardGrain {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(227, 178, 115, 0.05) 0px,
+    rgba(227, 178, 115, 0.05) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  pointer-events: none;
+}
+
+.cardPeel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, var(--copper), var(--copper-deep));
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  transform: translate(46px, -46px);
+  transition: transform 0.35s ease;
+}
+
+.whyCard:hover .cardPeel {
+  transform: translate(0, 0);
+}
+
+.swatchCode {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--oak-light);
+  margin-bottom: 14px;
+}
+
+.whyCard h3 {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--cream);
+}
+
+/* =======================================
+   MATERIAL STRIP
+======================================= */
+
+.materialStrip {
+  background: var(--walnut-deep);
+  border-top: 1px solid rgba(193, 127, 63, 0.15);
+  border-bottom: 1px solid rgba(193, 127, 63, 0.15);
+  padding: 22px 8%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.materialItem {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--oak-light);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.materialDot {
+  color: var(--copper);
+}
+
+/* =======================================
+   CTA
+======================================= */
+
+.cta {
+  position: relative;
+  padding: 130px 8%;
+  display: flex;
+  justify-content: center;
+  background: var(--ink);
+  overflow: hidden;
+}
+
+.ctaGlow {
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(201, 117, 43, 0.22), transparent 70%);
+  filter: blur(90px);
+}
+
+.ctaContent {
+  position: relative;
+  max-width: 720px;
+  text-align: center;
+}
+
+.ctaContent h2 {
+  margin-top: 16px;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.ctaContent p {
+  margin-top: 20px;
+  color: rgba(244, 234, 217, 0.75);
+  font-size: 1.02rem;
+  line-height: 1.85;
+}
+
+.buttonGroup {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.callBtn,
+.whatsappBtn {
+  padding: 16px 34px;
+  border-radius: 60px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.callBtn {
+  background: linear-gradient(135deg, var(--copper), var(--copper-deep));
+  color: var(--cream);
+  box-shadow: 0 15px 35px rgba(201, 117, 43, 0.3);
+}
+
+.whatsappBtn {
+  background: transparent;
+  color: var(--oak-light);
+  border: 1px solid rgba(193, 127, 63, 0.45);
+}
+
+.callBtn:hover,
+.whatsappBtn:hover {
+  transform: translateY(-6px);
+}
+
+/* =======================================
+   FOOTER
+======================================= */
+
+.footer {
+  background: var(--walnut-deep);
+  text-align: center;
+}
+
+.footerInner {
+  padding: 60px 20px 50px;
+}
+
+.footerLogo {
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.footerInner p {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--cream);
+}
+
+.footerInner span {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(244, 234, 217, 0.5);
+}
+
+/* =======================================
+   RESPONSIVE
+======================================= */
+
+/* ===================================================
+   RESPONSIVE
+=================================================== */
+
+/* Large Laptop */
+
+@media (max-width:1200px){
+
+.hero{
+    min-height:90vh;
+    padding:50px 30px 70px;
+}
+
+.logo{
+    width:500px;
+    height:280px;
+}
+
+.heroHeading{
+    font-size:4.3rem;
+}
+
+.about,
+.whySection,
+.cta{
+    padding:100px 6%;
+}
+
+}
+
+
+/* Tablet */
+
+@media (max-width:992px){
+
+.hero{
+
+    min-height:auto;
+
+    padding:70px 20px 60px;
+
+}
+
+.logo{
+
+    width:430px;
+    height:240px;
+
+}
+
+.logoPlate{
+
+    padding:4px 18px;
+
+}
+
+.heroHeading{
+
+    font-size:3.2rem;
+
+}
+
+.heroText{
+
+    max-width:90%;
+    font-size:1rem;
+
+}
+
+.chipRow{
+
+    max-width:100%;
+}
+
+.about,
+.whySection,
+.cta{
+
+    padding:80px 6%;
+
+}
+
+.whyGrid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.footerLogo{
+
+    width:120px;
+    height:auto;
+
+}
+
+}
+
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.hero{
+
+    min-height:auto;
+
+    padding:60px 18px 50px;
+
+}
+
+.logo{
+
+    width:320px;
+    height:180px;
+
+}
+
+.logoPlate{
+
+    padding:4px 12px;
+
+    border-radius:6px;
+
+}
+
+.heroTag{
+
+    margin-top:20px;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+}
+
+.heroHeading{
+
+    font-size:2.3rem;
+
+    line-height:1.2;
+
+}
+
+.heroText{
+
+    font-size:.95rem;
+
+    line-height:1.7;
+
+    width:100%;
+
+}
+
+.chipRow{
+
+    gap:8px;
+
+}
+
+.chip{
+
+    font-size:10px;
+
+    padding:6px 12px;
+
+}
+
+.heroButton{
+
+    width:100%;
+
+    max-width:260px;
+
+    text-align:center;
+
+    padding:14px;
+
+}
+
+.about{
+
+    padding:70px 20px;
+
+}
+
+.aboutContent h2{
+
+    font-size:2rem;
+
+}
+
+.aboutContent p{
+
+    font-size:.95rem;
+
+}
+
+.whySection{
+
+    padding:70px 20px;
+
+}
+
+.whyHeading h2{
+
+    font-size:2rem;
+
+}
+
+.whyGrid{
+
+    grid-template-columns:1fr;
+
+}
+
+.whyCard{
+
+    padding:24px;
+
+}
+
+.materialStrip{
+
+    padding:15px;
+
+}
+
+.materialItem{
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+}
+
+.cta{
+
+    padding:70px 20px;
+
+}
+
+.ctaContent h2{
+
+    font-size:2rem;
+
+}
+
+.buttonGroup{
+
+    flex-direction:column;
+
+    width:100%;
+
+}
+
+.callBtn,
+.whatsappBtn{
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+.footerInner{
+
+    padding:40px 20px;
+
+}
+
+.footerLogo{
+
+    width:90px;
+    height:auto;
+
+}
+
+}
+
+
+/* Small Mobile */
+
+@media (max-width:480px){
+
+.logo{
+
+    width:260px;
+
+    height:145px;
+
+}
+
+.heroHeading{
+
+    font-size:1.8rem;
+
+}
+
+.heroText{
+
+    font-size:.9rem;
+
+}
+
+.heroTag{
+
+    font-size:9px;
+
+}
+
+.aboutContent h2,
+.whyHeading h2,
+.ctaContent h2{
+
+    font-size:1.6rem;
+
+}
+
+.aboutContent p,
+.whyHeading p,
+.ctaContent p{
+
+    font-size:.9rem;
+
+}
+
+.smallTitle{
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+}
+
+}
+
+
+/* =======================================
+   BACK BUTTON CONTAINER & ACTIONS
+======================================= */
+
+.backContainer {
+  position: absolute;
+  top: 30px;
+  left: 5%;
+  z-index: 50; /* Keeps it above background shapes/overlays */
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  color: var(--navy);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 8px 16px;
+  background: transparent;
+  border-radius: 4px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backButton:hover {
+  color: var(--blue);
+  transform: translateX(-4px); /* Subtle luxury pull effect */
+}
+
+.backButton:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Adjust positioning on small mobile screens */
+@media (max-width: 720px) {
+  .backContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 24px 6% 0;
+    margin-bottom: -40px; /* Pulls hero grid back into visual balance */
+  }
+}

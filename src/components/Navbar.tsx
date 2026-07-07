@@ -1,31 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import styles from "./Navbar.module.css";
 import {Link} from "react-scroll"
 export default function Navbar() {
-const [scrolled, setScrolled] = useState(false);
+
 const [menuOpen, setMenuOpen] = useState(false);
 
-useEffect(() => {
-const handleScroll = () => {
-setScrolled(window.scrollY > 50);
-};
 
-
-window.addEventListener("scroll", handleScroll);
-
-return () =>
-  window.removeEventListener("scroll", handleScroll);
-
-
-}, []);
 
 return (
   <nav
-    className={`${styles.navbar} ${
-      scrolled ? styles.scrolled : ""
-    }`}
+    className={styles.navbar}
   >
     <div className={styles.logo}>
      <div className={styles.logoIcon}>

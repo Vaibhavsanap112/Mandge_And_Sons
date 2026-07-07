@@ -1,6 +1,6 @@
 .stats {
   background: #06152e;
-  padding: 15px 7%;
+  padding: 30px 7%;
 }
 
 .container {
@@ -10,50 +10,71 @@
 }
 
 .card {
+  position: relative;
   text-align: center;
   color: white;
-  position: relative;
 }
 
 .card:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: 10%;
+  top: 15%;
   right: -10px;
   width: 1px;
-  height: 80%;
-  background: rgba(212, 175, 55, 0.4);
-}
-
-.icon {
-  font-size: 30px;
-  margin-bottom: 15px;
+  height: 70%;
+  background: rgba(212, 175, 55, 0.35);
 }
 
 .card h2 {
-  font-size: 42px;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #d4af37;
   margin-bottom: 10px;
-  color: white;
+  line-height: 1;
 }
 
 .card p {
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #d4af37;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: white;
+  opacity: 0.8;
+  text-transform: uppercase;
 }
+
+/* ----------------------- */
+/* Tablet */
+/* ----------------------- */
 
 @media (max-width: 992px) {
   .container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+
+  .card::after {
+    display: none;
   }
 }
 
+/* ----------------------- */
+/* Mobile */
+/* ----------------------- */
+
 @media (max-width: 600px) {
-  .container {
-    grid-template-columns: 1fr;
+  .stats {
+    padding: 40px 20px;
   }
 
-  .card:not(:last-child)::after {
-    display: none;
+  .container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .card h2 {
+    font-size: 3rem;
+  }
+
+  .card p {
+    font-size: 12px;
   }
 }

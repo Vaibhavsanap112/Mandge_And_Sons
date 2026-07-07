@@ -5,32 +5,32 @@ import styles from "./WhyChoose.module.css";
 
 const features = [
   {
-    icon: "🏢",
+    
     title: "Integrated Ecosystem",
     desc: "End-to-end solutions across multiple industries.",
   },
   {
-    icon: "⭐",
+    
     title: "Premium Quality",
     desc: "Strict quality control at every stage.",
   },
   {
-    icon: "👥",
+    
     title: "Experienced Team",
     desc: "Decades of expertise and market understanding.",
   },
   {
-    icon: "🤝",
+    
     title: "Customer First",
     desc: "Transparency, trust & long-term relationships.",
   },
   {
-    icon: "⚙️",
+    
     title: "Innovation Driven",
     desc: "Adopting advanced technology and practices.",
   },
   {
-    icon: "🛡️",
+   
     title: "End-to-End Solutions",
     desc: "From concept to completion, we deliver it all.",
   },
@@ -73,9 +73,7 @@ export default function WhyChoose() {
                 delay: index * 0.1,
               }}
             >
-              <div className={styles.icon}>
-                {item.icon}
-              </div>
+             
 
               <h3>{item.title}</h3>
 

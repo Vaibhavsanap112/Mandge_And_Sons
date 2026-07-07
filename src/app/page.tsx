@@ -12,16 +12,20 @@ import WhyChoose from "@/components/WhyChoose/WhyChoose";
 export default function Home() {
   return (
     <>
-    <Navbar></Navbar>
-    <Hero></Hero>
-    <About></About>
-    <Stats></Stats>
-    <Ventures></Ventures>
-    <WhyChoose></WhyChoose>
-    <Journey></Journey>
-    <Projects></Projects>
-    <Testimonials></Testimonials>
-    <Contact></Contact>
+      <Navbar />
+
+      
+        <Hero />
+
+        <About />
+        <Stats />
+        <Ventures />
+        <WhyChoose />
+        <Journey />
+        <Projects />
+        <Testimonials />
+        <Contact />
+      
     </>
   );
 }

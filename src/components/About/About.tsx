@@ -38,7 +38,7 @@ export default function About() {
           }}
         >
           <img
-            src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=800&q=80"
+            src='/Mukund_Nimba_Mandge.jpeg'
             alt="Director"
             className={styles.directorImage}
           />
@@ -78,7 +78,7 @@ export default function About() {
           </p>
 
           <div className={styles.signature}>
-            Abhishek Mandge
+            Mukund Nimba Mandge
           </div>
 
           <span className={styles.designation}>
