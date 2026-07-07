@@ -43,7 +43,18 @@ const features = [
 /* Spoke mark — echoes the sunburst in the logo. 
   FIXED: Added 'className' destructuring so styles correctly apply to the SVG element.
 */
-function SpokeMark({ count = 24, animate = false, delay = 0, className }) {
+type SpokeMarkProps = {
+  count?: number;
+  animate?: boolean;
+  delay?: number;
+  className?: string;
+};
+function SpokeMark({
+  count = 24,
+  animate = false,
+  delay = 0,
+  className,
+}: SpokeMarkProps) {
   const size = 100;
   const cx = size / 2;
   const cy = size / 2;

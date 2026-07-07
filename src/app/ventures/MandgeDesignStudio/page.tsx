@@ -31,7 +31,15 @@ const process = [
 /* Skyline mark — echoes the tapered spires in the logo. Used as a
    one-time "drawn line" reveal behind the hero, and as a small
    recurring rule between sections. */
-function SkylineMark({ className, animate = false }) {
+
+   type SkylineMarkProps = {
+  className?: string;
+  animate?: boolean;
+};
+function SkylineMark({
+  className,
+  animate = false,
+}: SkylineMarkProps) {
   const bars = [
     18, 34, 26, 48, 66, 92, 120, 150, 168, 140, 96, 60,
     30, 20, 44, 70, 100, 128, 110, 78, 46, 24,
