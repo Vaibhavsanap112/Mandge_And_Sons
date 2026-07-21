@@ -148,16 +148,19 @@
         {/* ================= HERO ================= */}
         <section className={styles.hero}>
           {/* Background skyline image, recolored to match the brand palette */}
-          <div className={styles.heroBg} aria-hidden="true">
-            <Image
-              src="/MangdgenEstate.jpg"
-              alt=""
-              fill
-              priority
-              className={styles.heroBgImage}
-            />
-            <div className={styles.heroBgOverlay}></div>
-          </div>
+       <div className={styles.heroBg}>
+  <img
+    src="/MangdgenEstate.jpg"
+    alt=""
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      position: "absolute",
+      inset: 0,
+    }}
+  />
+</div>
 
           <div className={styles.heroContent}>
             <motion.div
