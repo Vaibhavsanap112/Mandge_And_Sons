@@ -135,16 +135,56 @@
 }
 
 /* =======================================
-   HERO
+   HERO (FIXED BACKGROUND IMAGE RENDERING)
 ======================================= */
 
 .hero {
   position: relative;
-  padding: 40px 6% 40px;
+  overflow: hidden;
+  padding: 60px 6% 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-height: 85vh;
+  justify-content: center;
+}
+
+/* Background image layout context fix */
+.heroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heroBgImage {
+  object-fit: cover !important;
+  object-position: bottom center !important;
+  width: 100% !important;
+  height: 100% !important;
+  filter: grayscale(1) contrast(1.05) brightness(1.08);
+  opacity: 0.45 !important;
+}
+
+.heroBgOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--paper) 0%, rgba(251, 250, 248, 0.88) 20%, rgba(251, 250, 248, 0.35) 55%, rgba(251, 250, 248, 0.05) 100%),
+    linear-gradient(0deg, rgba(226, 35, 26, 0.08), transparent 45%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .heroLogoWrap {
@@ -350,7 +390,7 @@
 }
 
 /* =======================================
-   STATS STRIP — callback to logo's black ribbon
+   STATS STRIP
 ======================================= */
 
 .statsStrip {
@@ -475,7 +515,7 @@
 }
 
 /* =======================================
-   DIVIDER — the logo's diamond, in red
+   DIVIDER
 ======================================= */
 
 .parcelDivider {
@@ -577,7 +617,7 @@
 }
 
 /* =======================================
-   CTA — black ribbon band
+   CTA
 ======================================= */
 
 .cta {
@@ -713,4 +753,36 @@
   font-size: 11px;
   letter-spacing: 1px;
   color: var(--slate);
+}
+
+/* =======================================
+   RESPONSIVE OVERRIDES & MOBILE FONT FIXES
+======================================= */
+
+@media (max-width: 768px) {
+  .aboutText h2,
+  .whyHeading h2,
+  .ctaContent h2 {
+    font-size: 2.3rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .aboutText p,
+  .whyHeading p,
+  .ctaContent p {
+    font-size: 1.08rem !important;
+    line-height: 1.8 !important;
+  }
+
+  .about {
+    padding: 100px 6% 90px !important;
+  }
+
+  .whySection {
+    padding: 95px 6% 100px !important;
+  }
+
+  .cta {
+    padding: 95px 6% !important;
+  }
 }
