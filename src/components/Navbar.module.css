@@ -363,7 +363,7 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 4%;
-    height: 90px; /* Gives enough room for the bigger mobile logo */
+    height: 75px; /* Gives enough room for the bigger mobile logo */
   }
 
   .logoWrapper {
@@ -371,7 +371,7 @@
   }
 
   .logoImage {
-    height: 60px !important; /* Increases logo height from 42px/82px conflict */
+    height: 100px !important; /* Increases logo height from 42px/82px conflict */
   }
 }
 
