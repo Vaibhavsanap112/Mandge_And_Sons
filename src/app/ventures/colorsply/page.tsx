@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./Colorsply.module.css";
 
+import { FaPhone, FaWhatsapp } from "react-icons/fa";
+
 const features = [
   {
     title: "Premium Quality Materials",
@@ -40,15 +42,18 @@ const features = [
   },
 ];
 
-/* Spoke mark — echoes the sunburst in the logo. 
-  FIXED: Added 'className' destructuring so styles correctly apply to the SVG element.
-*/
 type SpokeMarkProps = {
   count?: number;
   animate?: boolean;
   delay?: number;
   className?: string;
 };
+
+// Round to avoid SSR/client floating-point mismatch on trig output
+function r(n: number) {
+  return Math.round(n * 1000) / 1000;
+}
+
 function SpokeMark({
   count = 24,
   animate = false,
@@ -69,10 +74,10 @@ function SpokeMark({
     >
       {Array.from({ length: count }).map((_, i) => {
         const angle = (i / count) * Math.PI * 2;
-        const x1 = cx + Math.cos(angle) * rInner;
-        const y1 = cy + Math.sin(angle) * rInner;
-        const x2 = cx + Math.cos(angle) * rOuter;
-        const y2 = cy + Math.sin(angle) * rOuter;
+        const x1 = r(cx + Math.cos(angle) * rInner);
+        const y1 = r(cy + Math.sin(angle) * rInner);
+        const x2 = r(cx + Math.cos(angle) * rOuter);
+        const y2 = r(cy + Math.sin(angle) * rOuter);
         return (
           <motion.line
             key={i}
@@ -110,7 +115,8 @@ export default function ColorsplyPage() {
 
       {/* ================= HERO ================= */}
       <section className={styles.hero}>
-        {/* FIXED: Passing down animation flags if desired, or letting className resolve */}
+        <div className={styles.veneerLayers} aria-hidden="true"></div>
+        <div className={styles.lightSweep} aria-hidden="true"></div>
         <SpokeMark className={styles.heroSpoke} count={36} animate={!reduceMotion} />
 
         <motion.div
@@ -260,8 +266,7 @@ export default function ColorsplyPage() {
           </h2>
         </motion.div>
       </section>
-
-      {/* ================= CTA ================= */}
+{/* ================= CTA ================= */}
       <section className={styles.cta}>
         <motion.div
           className={styles.ctaContent}
@@ -278,16 +283,18 @@ export default function ColorsplyPage() {
           </p>
 
           <div className={styles.buttonGroup}>
-            <a href="tel:+919999999999" className={styles.primaryBtn}>
-              Call Now
+            <a href="tel:+918767223190" className={styles.primaryBtn}>
+              <FaPhone size={18} />
+              <span>Call Now</span>
             </a>
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/8767223190"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.secondaryBtn}
+              aria-label="WhatsApp"
             >
-              WhatsApp
+              <FaWhatsapp size={26} />
             </a>
           </div>
         </motion.div>

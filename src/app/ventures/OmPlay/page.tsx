@@ -71,7 +71,7 @@ export default function OmPlywoodPage() {
             <Image
               src="/om_plywood_and_Hardware.png"
               alt="OM Plywood & Hardware"
-              width={720}
+              width={620}
               height={155}
               priority
               className={styles.logo}
@@ -238,25 +238,28 @@ export default function OmPlywoodPage() {
       </section>
 
       {/* ================= FOOTER ================= */}
-      <footer className={styles.footer}>
-        <motion.div
-          className={styles.footerInner}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        >
-          <Image
-            src="/om_plywood_and_Hardware.png"
-            alt="OM Plywood"
-            width={140}
-            height={140}
-            className={styles.footerLogo}
-          />
-          <p>Premium Interior Solutions</p>
-          <span>© 2026 OM Plywood &amp; Hardware. All Rights Reserved.</span>
-        </motion.div>
-      </footer>
+      {/* ================= FOOTER ================= */}
+<footer className={styles.footer}>
+  <motion.div
+    className={styles.footerInner}
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1 }}
+  >
+    <div className={styles.logoPlate}>
+      <Image
+        src="/om_plywood_and_Hardware.png"
+        alt="OM Plywood"
+        width={300}
+        height={120}
+        className={styles.footerLogo}
+      />
+    </div>
+    <p>Premium Interior Solutions</p>
+    <span>© 2026 OM Plywood &amp; Hardware. All Rights Reserved.</span>
+  </motion.div>
+</footer>
     </main>
   );
 }

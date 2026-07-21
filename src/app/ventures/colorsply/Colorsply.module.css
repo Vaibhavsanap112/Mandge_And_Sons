@@ -1,24 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap");
-
 /* =======================================
-   TOKENS
+   TOKENS  (Blue #003585 · Times New Roman family)
 ======================================= */
 
 .page {
   --white: #ffffff;
-  --ice: #eef3fa;
-  --ice-deep: #dfe8f5;
-  --navy-deep: #0a2049;
-  --navy: #0d2a5e;
-  --blue: #1c4a8f;
-  --sky: #4a7fc9;
-  --steel: #5b6b82;
-  --ink: #10182b;
-  --line: rgba(13, 42, 94, 0.14);
+  --ice: #eef2f8;
+  --ice-deep: #dde5f2;
+  --navy-deep: #001c47;
+  --navy: #003585;
+  --blue: #003585;
+  --sky: #4067a8;
+  --steel: #566175;
+  --ink: #0b1526;
+  --line: rgba(0, 53, 133, 0.15);
 
-  --font-display: "Lora", Georgia, serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
+  --font-display: "Times New Roman MT Condensed", "Times New Roman", Georgia, serif;
+  --font-body: "Times New Roman", Georgia, serif;
+  --font-mono: "Times New Roman", Georgia, serif;
 
   background: var(--white);
   color: var(--ink);
@@ -32,14 +30,40 @@
 
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 640px;
+  max-height: 980px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 70px 20px 90px;
+  padding: 24px 20px;
   overflow: hidden;
   background: linear-gradient(180deg, var(--ice) 0%, var(--white) 65%);
+}
+
+/* Veneer layers — thin stacked diagonal bands, like a plywood cross-section,
+   drifting very slowly behind everything */
+.veneerLayers {
+  position: absolute;
+  inset: -10%;
+  z-index: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(0, 53, 133, 0.05) 0px,
+    rgba(0, 53, 133, 0.05) 2px,
+    transparent 2px,
+    transparent 34px
+  );
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000, transparent);
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, #000, transparent);
+  animation: veneerDrift 46s linear infinite;
+}
+
+@keyframes veneerDrift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(68px, -34px); }
 }
 
 .heroSpoke {
@@ -49,8 +73,49 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: rgba(13, 42, 94, 0.06);
-  z-index: 0;
+  color: rgba(0, 53, 133, 0.07);
+  z-index: 1;
+  animation: spokeSpin 90s linear infinite;
+}
+
+@keyframes spokeSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* soft sheen sweeping across the hero, like light on a lacquered sheet */
+.lightSweep {
+  position: absolute;
+  top: -20%;
+  left: -60%;
+  width: 42%;
+  height: 140%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(0, 53, 133, 0.05) 45%,
+    rgba(0, 53, 133, 0.1) 50%,
+    rgba(0, 53, 133, 0.05) 55%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  animation: sweepMove 13s ease-in-out infinite;
+}
+
+@keyframes sweepMove {
+  0%   { left: -60%; }
+  50%  { left: 110%; }
+  100% { left: -60%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroSpoke,
+  .veneerLayers,
+  .lightSweep {
+    animation: none !important;
+  }
 }
 
 .heroContent {
@@ -63,53 +128,57 @@
 }
 
 .logo {
-  width: min(70vw, 320px);
+  width: min(52vw, 230px);
   height: auto;
   user-select: none;
+  filter: drop-shadow(0 12px 28px rgba(0, 28, 71, 0.18));
 }
 
 .heroTag {
-  margin-top: 14px;
+  margin-top: 10px;
   color: var(--blue);
   font-family: var(--font-mono);
   letter-spacing: 2.5px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
 .heroHeading {
-  margin-top: 20px;
+  margin-top: 14px;
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 5.4vw, 4rem);
-  line-height: 1.18;
-  font-weight: 600;
+  font-size: clamp(1.9rem, 4.4vw, 3.3rem);
+  line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: 0.2px;
   color: var(--navy-deep);
 }
 
 .heroText {
-  margin-top: 24px;
+  margin-top: 16px;
   max-width: 580px;
   color: var(--steel);
-  font-size: 1.04rem;
+  font-size: 1.06rem;
   line-height: 1.75;
 }
 
 .heroBtn {
-  margin-top: 38px;
+  margin-top: 22px;
   padding: 16px 38px;
   background: var(--navy);
   color: var(--white);
-  border-radius: 4px;
-  font-weight: 600;
+  border-radius: 3px;
+  font-weight: 700;
   font-size: 0.95rem;
+  letter-spacing: 0.3px;
   text-decoration: none;
-  box-shadow: 0 15px 35px rgba(13, 42, 94, 0.22);
-  transition: background 0.3s ease;
+  box-shadow: 0 15px 35px rgba(0, 53, 133, 0.25);
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .heroBtn:hover {
-  background: var(--blue);
+  background: var(--sky);
+  transform: translateY(-3px);
 }
 
 .heroBtn:focus-visible,
@@ -139,8 +208,8 @@
   color: var(--blue);
   font-family: var(--font-mono);
   letter-spacing: 2.5px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 25px;
+  font-weight: 800;
   text-transform: uppercase;
 }
 
@@ -148,7 +217,7 @@
   margin-top: 16px;
   font-family: var(--font-display);
   font-size: clamp(2.1rem, 4.2vw, 3.2rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--navy-deep);
 }
 
@@ -161,7 +230,7 @@
 }
 
 .aboutContent p {
-  font-size: 1.02rem;
+  font-size: 1.04rem;
   line-height: 1.9;
   color: var(--steel);
   margin-bottom: 22px;
@@ -171,7 +240,7 @@
 
 .aboutContent strong {
   color: var(--navy);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* =======================================
@@ -193,7 +262,7 @@
   margin-top: 14px;
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.6vw, 2.9rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--navy-deep);
 }
 
@@ -210,13 +279,14 @@
   padding: 32px 26px;
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .card:hover {
   border-color: var(--sky);
-  box-shadow: 0 20px 40px rgba(13, 42, 94, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 53, 133, 0.12);
+  transform: translateY(-4px);
 }
 
 .cardSpoke {
@@ -228,14 +298,14 @@
 
 .card h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 700;
   color: var(--navy-deep);
   margin-bottom: 10px;
 }
 
 .card p {
-  font-size: 0.94rem;
+  font-size: 0.95rem;
   line-height: 1.7;
   color: var(--steel);
 }
@@ -245,13 +315,32 @@
 ======================================= */
 
 .mission {
+  position: relative;
   padding: 110px 8%;
   display: flex;
   justify-content: center;
   background: var(--navy-deep);
+  overflow: hidden;
+}
+
+.mission::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 34px
+  );
+  animation: veneerDrift 60s linear infinite;
+  pointer-events: none;
 }
 
 .missionContent {
+  position: relative;
+  z-index: 2;
   max-width: 720px;
   text-align: center;
 }
@@ -263,8 +352,8 @@
 .missionContent h2 {
   margin-top: 16px;
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
-  font-weight: 600;
+  font-size: clamp(1.85rem, 3.8vw, 2.85rem);
+  font-weight: 700;
   font-style: italic;
   line-height: 1.4;
   color: var(--white);
@@ -290,54 +379,72 @@
   margin-top: 16px;
   font-family: var(--font-display);
   font-size: clamp(2.1rem, 4.2vw, 3.2rem);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--navy-deep);
 }
 
 .ctaContent p {
   margin-top: 18px;
   color: var(--steel);
-  font-size: 1.02rem;
+  font-size: 1.04rem;
   line-height: 1.85;
 }
+
+/* Replace your existing .buttonGroup, .primaryBtn, and .secondaryBtn with this: */
 
 .buttonGroup {
   margin-top: 36px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
   gap: 16px;
 }
 
-.primaryBtn,
-.secondaryBtn {
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between phone icon and text */
   padding: 15px 34px;
-  border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.94rem;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
   text-decoration: none;
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.primaryBtn {
-  background: var(--navy);
-  color: var(--white);
-}
-
 .primaryBtn:hover {
-  background: var(--blue);
+  background: var(--sky);
   transform: translateY(-4px);
 }
 
 .secondaryBtn {
-  background: transparent;
-  color: var(--navy);
-  border: 1px solid rgba(13, 42, 94, 0.3);
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
 }
 
 .secondaryBtn:hover {
+  background: #20ba5a;
   transform: translateY(-4px);
-  border-color: var(--navy);
+}
+
+.secondaryBtn svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+  color: white;
 }
 
 /* =======================================
@@ -345,43 +452,35 @@
 ======================================= */
 
 .footer {
-  padding: 50px 20px 42px;
+  padding: 50px 10px 20px;
   text-align: center;
-  background: var(--ice);
-  border-top: 1px solid var(--line);
+  background: #f8f9fc;
+  border-top: 1px solid rgba(0,53,133,.12);
 }
 
 .footerLogo {
-  opacity: 0.9;
-  margin-bottom: 10px;
+  width: 190px;
+  height: auto;
+  margin-bottom: 7px;
+  filter: drop-shadow(0 10px 25px rgba(0,53,133,.18));
 }
 
 .footer p {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: var(--steel);
+  margin-top: 6px;
+  color: #566175;
+  font-size: 13px;
+  letter-spacing: 1.5px;
 }
 
 /* =======================================
-   RESPONSIVE
-======================================= */
-
-@media (max-width: 720px) {
-  .hero { padding: 50px 16px 70px; }
-  .about, .whySection, .mission, .cta { padding-left: 6%; padding-right: 6%; }
-  .whyGrid { grid-template-columns: 1fr; }
-}
-
-/* =======================================
-   BACK BUTTON CONTAINER & ACTIONS
+   BACK BUTTON
 ======================================= */
 
 .backContainer {
   position: absolute;
   top: 30px;
   left: 5%;
-  z-index: 50; /* Keeps it above background shapes/overlays */
+  z-index: 50;
 }
 
 .backButton {
@@ -390,7 +489,7 @@
   color: var(--navy);
   font-family: var(--font-mono);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1.5px;
@@ -401,8 +500,8 @@
 }
 
 .backButton:hover {
-  color: var(--blue);
-  transform: translateX(-4px); /* Subtle luxury pull effect */
+  color: var(--sky);
+  transform: translateX(-4px);
 }
 
 .backButton:focus-visible {
@@ -410,14 +509,20 @@
   outline-offset: 3px;
 }
 
-/* Adjust positioning on small mobile screens */
+/* =======================================
+   RESPONSIVE
+======================================= */
+
 @media (max-width: 720px) {
+  .hero { height: auto; min-height: 100vh; padding: 90px 16px 60px; }
+  .about, .whySection, .mission, .cta { padding-left: 6%; padding-right: 6%; }
+  .whyGrid { grid-template-columns: 1fr; }
+
   .backContainer {
     position: relative;
     top: 0;
     left: 0;
     padding: 24px 6% 0;
-    margin-bottom: -40px; /* Pulls hero grid back into visual balance */
+    margin-bottom: -40px;
   }
 }
-

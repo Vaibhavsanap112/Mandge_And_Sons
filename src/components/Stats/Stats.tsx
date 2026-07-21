@@ -36,7 +36,7 @@ const stats = [
 export default function Stats() {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.4,
+    threshold: 0.1,
   });
 
   return (
@@ -56,17 +56,21 @@ export default function Stats() {
             }}
             viewport={{ once: true }}
             transition={{
-              duration: 0.7,
+              duration: 0.6,
               delay: index * 0.15,
             }}
           >
             <h2>
-              {inView && (
+              {inView ? (
                 <CountUp
                   start={0}
                   end={item.number}
-                  duration={2.5}
+                  duration={2.0}
+                  delay={0.4} /* 👈 DELAY added so the count starts AFTER the card fades into view */
+                  useEasing={true}
                 />
+              ) : (
+                0
               )}
               {item.suffix}
             </h2>

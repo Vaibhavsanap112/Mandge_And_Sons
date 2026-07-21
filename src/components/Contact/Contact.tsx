@@ -1,6 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { 
+  FaFacebookF, 
+  FaInstagram, 
+  FaLinkedinIn, 
+  FaTwitter, 
+  FaWhatsapp, 
+  FaPhoneFlip, 
+  FaEnvelope, 
+  FaLocationDot 
+} from "react-icons/fa6"; // Standardized icon imports
 import styles from "./Contact.module.css";
 
 export default function Contact() {
@@ -39,7 +50,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6 }}
           >
-            <div className={styles.icon}>📞</div>
+            <div className={styles.icon}>
+              <FaPhoneFlip />
+            </div>
             <h3>Call Us</h3>
             <p>+91 12345 67890</p>
           </motion.div>
@@ -51,7 +64,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <div className={styles.icon}>✉️</div>
+            <div className={styles.icon}>
+              <FaEnvelope />
+            </div>
             <h3>Email</h3>
             <p>info@mandgeandsons.com</p>
           </motion.div>
@@ -63,7 +78,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
           >
-            <div className={styles.icon}>📍</div>
+            <div className={styles.icon}>
+              <FaLocationDot />
+            </div>
             <h3>Visit Us</h3>
             <p>Nashik, Maharashtra, India</p>
           </motion.div>
@@ -75,7 +92,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <div className={styles.icon}>💬</div>
+            <div className={styles.icon}>
+              <FaWhatsapp />
+            </div>
             <h3>WhatsApp</h3>
             <p>Chat With Our Team</p>
           </motion.div>
@@ -143,7 +162,7 @@ export default function Contact() {
           </motion.form>
         </div>
 
-        {/* ========================== ENHANCED FOOTER ========================== */}
+        {/* ========================== SIGNATURE FOOTER ========================== */}
         <motion.footer
           className={styles.footer}
           initial={{ opacity: 0, y: 30 }}
@@ -151,36 +170,76 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
+          <div className={styles.footerWatermark} aria-hidden="true">1993</div>
+
           <div className={styles.footerMain}>
-            <div className={styles.footerLogo}>
-              <h2>Mandge & Sons</h2>
-              <span>Building Excellence Since 1993</span>
+
+            {/* Column 1: Brand (With Logo Image) */}
+            <div className={styles.footerBrand}>
+              <div className={styles.footerLogoWrapper}>
+                <Image
+                  src="/MainLogo.png"
+                  alt="MANDGE & SONS Logo"
+                  width={220}
+                  height={70}
+                  className={styles.footerLogoImg}
+                />
+              </div>
+              <p className={styles.footerTagline}>A Legacy of Excellence, Since 1993</p>
+              <p className={styles.footerDesc}>
+                Shaping the future across architecture, interior design,
+                manufacturing, and real estate — four ventures, one standard of craft.
+              </p>
+              <div className={styles.socialIcons}>
+                <a href="#" aria-label="Facebook"><FaFacebookF /></a>
+                <a href="#" aria-label="Instagram"><FaInstagram /></a>
+                <a href="#" aria-label="LinkedIn"><FaLinkedinIn /></a>
+                <a href="#" aria-label="Twitter"><FaTwitter /></a>
+              </div>
             </div>
 
+            {/* Column 2: Quick Links */}
             <div className={styles.footerNavGroup}>
-              <h4>Quick Links</h4>
+              <h4><span className={styles.footerRule} />Company</h4>
               <div className={styles.footerLinks}>
                 <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#ventures">Ventures</a>
-                <a href="#journey">Journey</a>
+                <a href="#about">About Us</a>
+                <a href="#journey">Our Journey</a>
                 <a href="#contact">Contact</a>
               </div>
             </div>
 
+            {/* Column 3: Our Ventures */}
             <div className={styles.footerNavGroup}>
-              <h4>Connect With Us</h4>
-              <div className={styles.socials}>
-                <a href="#" aria-label="Facebook">Facebook</a>
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <h4><span className={styles.footerRule} />Our Ventures</h4>
+              <div className={styles.footerLinks}>
+                <a href="#ventures">Mandge Estate</a>
+                <a href="#ventures">Mandge Design Studio</a>
+                <a href="#ventures">Colorsply Industries</a>
+                <a href="#ventures">OM Plywood & Hardware</a>
               </div>
             </div>
+
+            {/* Column 4: Contact Info */}
+            <div className={styles.footerNavGroup}>
+              <h4><span className={styles.footerRule} />Reach Us</h4>
+              <div className={styles.footerContactList}>
+                <p><span><FaLocationDot /></span> Nashik, Maharashtra, India</p>
+                <p><span><FaEnvelope /></span> info@mandgeandsons.com</p>
+                <p><span><FaPhoneFlip /></span> +91 12345 67890</p>
+              </div>
+            </div>
+
           </div>
 
           <div className={styles.footerBottom}>
             <div className={styles.copy}>
               © 2026 Mandge & Sons. All Rights Reserved.
+            </div>
+            <div className={styles.legalLinks}>
+              <a href="#">Privacy Policy</a>
+              <span className={styles.dot} />
+              <a href="#">Terms of Service</a>
             </div>
           </div>
         </motion.footer>

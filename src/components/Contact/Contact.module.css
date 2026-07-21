@@ -1,319 +1,481 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&display=swap');
+
 .contact {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #040f22, #0c274f, #040f22);
-    color: #fff;
-    padding: 120px 0 40px;
-    font-family: system-ui, -apple-system, sans-serif;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #040f22, #0c274f, #040f22);
+  color: #fff;
+  padding: 120px 0 40px;
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
 .overlay {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 45%),
-        radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.08), transparent 50%);
-    pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 45%),
+    radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.08), transparent 50%);
+  pointer-events: none;
 }
 
 .container {
-    width: min(1400px, 100%);
-    margin: auto;
-    padding: 0 30px;
-    position: relative;
-    z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 4%; /* Gives comfortable spacing on sides without squeezing */
+  position: relative;
+  z-index: 2;
 }
 
 /* ==========================
    HEADER
 ========================== */
 .header {
-    text-align: center;
-    max-width: 850px;
-    margin: auto;
-    margin-bottom: 80px;
+  text-align: center;
+  max-width: 850px;
+  margin: 0 auto 80px;
 }
 
 .header span {
-    color: #d4af37;
-    letter-spacing: 4px;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
+  color: #d4af37;
+  letter-spacing: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .header h2 {
-    margin-top: 18px;
-    font-size: clamp(2.5rem, 5vw, 3.8rem);
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+  margin-top: 18px;
+  font-family: 'Times New Roman MT Condensed', 'Times New Roman', Times, serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .header p {
-    margin-top: 22px;
-    color: #cbd5e1;
-    line-height: 1.8;
-    font-size: 18px;
+  margin-top: 22px;
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 18px;
 }
 
 /* ==========================
    CONTACT CARDS
 ========================== */
 .contactCards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 25px;
-    margin-bottom: 90px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+  margin-bottom: 90px;
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 22px;
-    padding: 40px 25px;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 40px 25px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(212, 175, 55, 0.6);
-    background: rgba(255, 255, 255, 0.07);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+  border-color: rgba(212, 175, 55, 0.6);
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .icon {
-    width: 65px;
-    height: 65px;
-    margin: 0 auto 24px;
-    border-radius: 50%;
-    background: #d4af37;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: #d4af37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
 }
 
 .card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    letter-spacing: 0.5px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
 }
 
 .card p {
-    color: #94a3b8;
-    font-size: 15px;
-    word-break: break-word;
+  color: #94a3b8;
+  font-size: 15px;
+  word-break: break-word;
 }
 
 /* ==========================
    CONTENT & LAYOUT
 ========================== */
 .content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 80px;
-    align-items: center;
-    margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 100px;
 }
 
 @media (min-width: 992px) {
-    .content {
-        grid-template-columns: 1fr 1.1fr;
-    }
+  .content {
+    grid-template-columns: 1fr 1.1fr;
+  }
 }
 
 .left h3 {
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    line-height: 1.2;
-    margin-bottom: 22px;
-    font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  line-height: 1.2;
+  margin-bottom: 22px;
+  font-weight: 700;
 }
 
 .left p {
-    color: #cbd5e1;
-    line-height: 1.8;
-    margin-bottom: 40px;
-    font-size: 16px;
+  color: #cbd5e1;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  font-size: 16px;
 }
 
 .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
 }
 
 .features div {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: 14px;
-    padding: 16px 20px;
-    transition: all 0.3s ease;
-    font-weight: 500;
-    font-size: 15px;
-    color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 15px;
+  color: #e2e8f0;
 }
 
 .features div:hover {
-    background: #d4af37;
-    color: #06152e;
-    border-color: #d4af37;
-    transform: translateX(6px);
+  background: #d4af37;
+  color: #06152e;
+  border-color: #d4af37;
+  transform: translateX(6px);
 }
 
 /* ==========================
    FORM
 ========================== */
 .form {
-    background: #ffffff;
-    border-radius: 24px;
-    padding: 45px;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-    display: grid;
-    gap: 20px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 45px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  display: grid;
+  gap: 20px;
 }
 
 .form input,
 .form select,
 .form textarea {
-    width: 100%;
-    border: 1px solid #e2e8f0;
-    outline: none;
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 16px 18px;
-    font-size: 15px;
-    transition: all 0.3s ease;
-    color: #0f172a;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  color: #0f172a;
 }
 
 .form select {
-    cursor: pointer;
-    appearance: none;
+  cursor: pointer;
+  appearance: none;
 }
 
 .form input:focus,
 .form select:focus,
 .form textarea:focus {
-    background: #fff;
-    border-color: #d4af37;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  background: #fff;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 .form button {
-    border: none;
-    background: #d4af37;
-    color: #06152e;
-    padding: 18px;
-    border-radius: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+  border: none;
+  background: #d4af37;
+  color: #06152e;
+  padding: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
 }
 
 .form button:hover {
-    background: #06152e;
-    color: #fff;
-    box-shadow: 0 8px 25px rgba(6, 21, 46, 0.25);
+  background: #06152e;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(6, 21, 46, 0.25);
 }
 
 /* ==========================
-   PREMIUM FOOTER
+   FULL-WIDTH SIGNATURE FOOTER
 ========================== */
 .footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 60px;
-    margin-top: 40px;
+  position: relative;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 80px;
+  margin-top: 80px;
 }
 
+.footerWatermark {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(120px, 16vw, 260px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212, 175, 55, 0.12);
+  letter-spacing: -4px;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Grid taking 100% width with pro-proportional columns */
 .footerMain {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    padding-bottom: 40px;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr;
+  gap: 40px;
+  width: 100%;
+  padding-bottom: 60px;
 }
 
-.footerLogo h2 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 6px;
-    background: linear-gradient(135deg, #ffffff, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.footerLogo span {
-    font-size: 13px;
-    color: #94a3b8;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+.footerLogoWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.footerLogoImg {
+  width: auto !important;
+  height: 95px !important; /* Balanced logo sizing */
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.footerTagline {
+  font-family: 'Times New Roman MT Condensed ';
+  font-style: italic;
+  font-size: 19px;
+  color: #d4af37;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.footerDesc {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 24px;
+  max-width: 380px;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 14px;
+}
+
+.socialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: #d4af37;
+  font-size: 15px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.socialIcons a:hover {
+  background: #d4af37;
+  color: #06152e;
+  border-color: #d4af37;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
 }
 
 .footerNavGroup h4 {
-    font-size: 15px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #d4af37;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #f1f5f9;
+  margin-bottom: 24px;
+}
+
+.footerRule {
+  width: 18px;
+  height: 1px;
+  background: #d4af37;
+  display: inline-block;
 }
 
 .footerLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .footerLinks a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 15px;
-    transition: color 0.25s ease;
-    width: max-content;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  width: max-content;
 }
 
 .footerLinks a:hover {
-    color: #d4af37;
+  color: #d4af37;
+  padding-left: 6px;
 }
 
-.socials {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.footerContactList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.socials a {
-    color: #cbd5e1;
-    text-decoration: none;
-    font-size: 15px;
-    transition: all 0.25s ease;
-    width: max-content;
-}
-
-.socials a:hover {
-    color: #d4af37;
-    transform: translateX(4px);
+.footerContactList p {
+  color: #cbd5e1;
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
 }
 
 .footerBottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding-top: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 30px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .copy {
-    color: #64748b;
-    font-size: 14px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.legalLinks a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.legalLinks a:hover {
+  color: #d4af37;
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #475569;
+  display: inline-block;
+}
+
+/* ==========================
+   RESPONSIVE LAYOUTS
+========================== */
+@media (max-width: 1024px) {
+  .footerMain {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footerBottom {
+    flex-direction: column;
     text-align: center;
+    justify-content: center;
+  }
+
+  .footerWatermark {
+    font-size: 90px;
+    top: -10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerMain {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+
+
+
+/* Clean icon container - Yellow circle removed */
+.icon {
+  width: auto;
+  height: auto;
+  margin: 0 auto 18px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 32px;
+  color: #d4af37; /* Gives real vector icons a metallic gold color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.15);
+  color: #ffffff; /* Brightens on card hover */
 }

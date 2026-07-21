@@ -1,31 +1,76 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap");
+
+/* =======================================
+   FONTS — Glacial Indifference
+   Glacial Indifference is not on Google Fonts.
+   Drop the two files into /public/fonts/ and this
+   @font-face block will pick them up automatically:
+     /public/fonts/GlacialIndifference-Bold.woff2
+     /public/fonts/GlacialIndifference-Regular.woff2
+   (If you only have .otf, add an .otf src as a fallback line.)
+======================================= */
+
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("/fonts/GlacialIndifference-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Glacial Indifference";
+  src: url("/fonts/GlacialIndifference-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* =======================================
    TOKENS
 ======================================= */
 
 .page {
-  --paper: #f6f3ec;
-  --paper-deep: #eae4d4;
-  --ink: #17151c;
+  --paper: #f7f4ee;
+  --paper-deep: #ece6d6;
+  --ink: #18151a;
   --charcoal: #302d38;
-  --red: #e2231a;
-  --red-deep: #a3170f;
-  --line: #d7cfb8;
-  --slate: #5b5748;
+  --red: #da1c1a;
+  --red-deep: #a3120f;
+  --red-soft: #f3a9a7;
+  --line: #d9d0b8;
+  --slate: #5c584a;
 
-  --font-display: "Space Grotesk", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  /* Same family, two weights — Bold carries the display voice,
+     Regular carries the body. IBM Plex Mono is the utility face
+     for eyebrows/labels, kept for that blueprint/spec-sheet feel. */
+  --font-display: "Glacial Indifference", "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Glacial Indifference", "Inter", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
 
-  background: var(--paper);
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNDAiIGhlaWdodD0iMjQwIiB2aWV3Qm94PSIwIDAgMjQwIDI0MCI+CiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMTgxNTFBIiBzdHJva2Utd2lkdGg9IjEiPgogICAgPCEtLSBkaW1lbnNpb24gbGluZSwgdG9wIC0tPgogICAgPGxpbmUgeDE9IjIwIiB5MT0iMzAiIHgyPSIxNDAiIHkyPSIzMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDU1Ii8+CiAgICA8bGluZSB4MT0iMjAiIHkxPSIyNCIgeDI9IjIwIiB5Mj0iMzYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1NSIvPgogICAgPGxpbmUgeDE9IjE0MCIgeTE9IjI0IiB4Mj0iMTQwIiB5Mj0iMzYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1NSIvPgogICAgPHBhdGggZD0iTTIwIDMwIGw3IC0zIE0yMCAzMCBsNyAzIiBzdHJva2Utb3BhY2l0eT0iMC4wNTUiLz4KICAgIDxwYXRoIGQ9Ik0xNDAgMzAgbC03IC0zIE0xNDAgMzAgbC03IDMiIHN0cm9rZS1vcGFjaXR5PSIwLjA1NSIvPgoKICAgIDwhLS0gcm9vbSBjb3JuZXIgb3V0bGluZSAtLT4KICAgIDxwYXRoIGQ9Ik0zMCA2MCBMMzAgMTUwIEwxMjAgMTUwIEwxMjAgNjAiIHN0cm9rZS1vcGFjaXR5PSIwLjA1Ii8+CgogICAgPCEtLSBkb29yIHN3aW5nIC0tPgogICAgPHBhdGggZD0iTTMwIDkwIEEzMCAzMCAwIDAgMSA2MCA2MCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiLz4KICAgIDxsaW5lIHgxPSIzMCIgeTE9IjkwIiB4Mj0iMzAiIHkyPSI2MCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiLz4KCiAgICA8IS0tIHN1cnZleSBtYXJrZXIgLS0+CiAgICA8Y2lyY2xlIGN4PSIxODUiIGN5PSI3MCIgcj0iNiIgc3Ryb2tlLW9wYWNpdHk9IjAuMDYiLz4KICAgIDxsaW5lIHgxPSIxNzUiIHkxPSI3MCIgeDI9IjE5NSIgeTI9IjcwIiBzdHJva2Utb3BhY2l0eT0iMC4wNDUiLz4KICAgIDxsaW5lIHgxPSIxODUiIHkxPSI2MCIgeDI9IjE4NSIgeTI9IjgwIiBzdHJva2Utb3BhY2l0eT0iMC4wNDUiLz4KCiAgICA8IS0tIHZlcnRpY2FsIGRpbWVuc2lvbiwgcmlnaHQgc2lkZSAtLT4KICAgIDxsaW5lIHgxPSIyMTAiIHkxPSIxMDAiIHgyPSIyMTAiIHkyPSIyMDAiIHN0cm9rZS1vcGFjaXR5PSIwLjA1Ii8+CiAgICA8bGluZSB4MT0iMjA0IiB5MT0iMTAwIiB4Mj0iMjE2IiB5Mj0iMTAwIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIvPgogICAgPGxpbmUgeDE9IjIwNCIgeTE9IjIwMCIgeDI9IjIxNiIgeTI9IjIwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDUiLz4KCiAgICA8IS0tIHNtYWxsIHdpbmRvdyB0aWNrIG1hcmtzIGFsb25nIGEgd2FsbCAtLT4KICAgIDxsaW5lIHgxPSIxNTAiIHkxPSIxODAiIHgyPSIxNTAiIHkyPSIxOTAiIHN0cm9rZS1vcGFjaXR5PSIwLjA0NSIvPgogICAgPGxpbmUgeDE9IjE2MCIgeTE9IjE4MCIgeDI9IjE2MCIgeTI9IjE5MCIgc3Ryb2tlLW9wYWNpdHk9IjAuMDQ1Ii8+CiAgICA8bGluZSB4MT0iMTcwIiB5MT0iMTgwIiB4Mj0iMTcwIiB5Mj0iMTkwIiBzdHJva2Utb3BhY2l0eT0iMC4wNDUiLz4KICA8L2c+Cjwvc3ZnPgo=")
+    repeat, var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
+  font-weight: 400;
   overflow-x: hidden;
 }
 
 /* =======================================
-   SKYLINE MARK (signature element)
+   SKYLINE MARK (recurring rule)
+======================================= */
+
+.ruleSkyline {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: 44px;
+  margin: 0 auto;
+  color: var(--line);
+}
+
+/* =======================================
+   HERO SKYLINE — faint ambient watermark behind the hero copy
 ======================================= */
 
 .heroSkyline {
@@ -35,17 +80,8 @@
   transform: translateX(-50%);
   width: min(1100px, 150vw);
   height: auto;
-  color: rgba(23, 21, 28, 0.06);
+  color: rgba(24, 21, 26, 0.06);
   z-index: 0;
-}
-
-.ruleSkyline {
-  display: block;
-  width: 100%;
-  max-width: 640px;
-  height: 44px;
-  margin: 0 auto;
-  color: var(--line);
 }
 
 /* =======================================
@@ -59,43 +95,85 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 70px 20px 90px;
+  padding: 40px 20px 40px;
   overflow: hidden;
-  background: var(--paper);
 }
 
 .gridLines {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(23, 21, 28, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(23, 21, 28, 0.045) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(24, 21, 26, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 21, 26, 0.045) 1px, transparent 1px);
   background-size: 56px 56px;
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000, transparent);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000, transparent);
 }
 
-.heroContent {
+.heroInner {
   position: relative;
   z-index: 5;
-  max-width: 780px;
+  width: 100%;
+  max-width: 1180px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 24px;
+}
+
+.heroContent {
+  max-width: 560px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
   align-items: center;
+}
+
+.heroIllustration {
+  width: min(100%, 380px);
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .heroInner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .heroContent {
+    align-items: center;
+    text-align: center;
+  }
+  .heroVisual {
+    order: -1;
+  }
+  .heroIllustration {
+    width: min(72%, 300px);
+  }
 }
 
 .logoWrap {
   margin-bottom: 6px;
+  align-self: center;
+  background: var(--paper);
+  isolation: isolate;
 }
 
 .logo {
-  width: min(52vw, 250px);
+  display: block;
+  width: min(38vw, 210px);
   height: auto;
   user-select: none;
+  mix-blend-mode: multiply;
 }
 
 .heroTag {
-  margin-top: 8px;
+  margin-top: 4px;
   color: var(--red);
   font-family: var(--font-mono);
   letter-spacing: 3px;
@@ -105,33 +183,35 @@
 }
 
 .heroHeading {
-  margin-top: 20px;
+  margin-top: 12px;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5.6vw, 4.3rem);
-  line-height: 1.12;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 3vw, 2.9rem);
+  line-height: 1.14;
   letter-spacing: -0.5px;
   color: var(--ink);
 }
 
 .heroText {
-  margin-top: 24px;
-  max-width: 560px;
+  margin-top: 14px;
+  max-width: 480px;
   color: var(--slate);
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-weight: 400;
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 .heroBtn {
-  margin-top: 38px;
-  padding: 16px 38px;
+  margin-top: 20px;
+  padding: 14px 32px;
   background: var(--ink);
   color: var(--paper);
   border-radius: 4px;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.92rem;
   text-decoration: none;
-  box-shadow: 0 12px 30px rgba(23, 21, 28, 0.18);
+  box-shadow: 0 12px 30px rgba(24, 21, 26, 0.18);
   transition: background 0.3s ease;
 }
 
@@ -141,7 +221,8 @@
 
 .heroBtn:focus-visible,
 .primaryBtn:focus-visible,
-.secondaryBtn:focus-visible {
+.secondaryBtn:focus-visible,
+.backButton:focus-visible {
   outline: 2px solid var(--red);
   outline-offset: 3px;
 }
@@ -154,7 +235,6 @@
   padding: 110px 8% 90px;
   display: flex;
   justify-content: center;
-  background: var(--paper);
 }
 
 .aboutContent {
@@ -174,8 +254,8 @@
 .aboutContent h2 {
   margin-top: 16px;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.1rem, 4.2vw, 3.2rem);
-  font-weight: 600;
   line-height: 1.2;
   color: var(--ink);
 }
@@ -190,6 +270,7 @@
 
 .aboutContent p {
   font-size: 1.02rem;
+  font-weight: 400;
   line-height: 1.9;
   color: var(--slate);
   margin-bottom: 22px;
@@ -199,7 +280,8 @@
 
 .aboutContent strong {
   color: var(--ink);
-  font-weight: 600;
+  font-weight: 700;
+  font-family: var(--font-display);
 }
 
 /* =======================================
@@ -208,7 +290,6 @@
 
 .whySection {
   padding: 90px 8% 110px;
-  background: var(--paper);
 }
 
 .whyHeading {
@@ -220,8 +301,8 @@
 .whyHeading h2 {
   margin-top: 14px;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2rem, 3.6vw, 2.9rem);
-  font-weight: 600;
   color: var(--ink);
 }
 
@@ -247,11 +328,12 @@
   border: 1px solid var(--line);
   border-radius: 6px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .card:hover {
   border-color: var(--red);
-  box-shadow: 0 20px 40px rgba(23, 21, 28, 0.1);
+  box-shadow: 0 24px 46px rgba(24, 21, 26, 0.12);
 }
 
 .cornerTL,
@@ -293,14 +375,15 @@
 
 .card h3 {
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: 1.2rem;
-  font-weight: 600;
   color: var(--ink);
   margin-bottom: 10px;
 }
 
 .card p {
   font-size: 0.94rem;
+  font-weight: 400;
   line-height: 1.7;
   color: var(--slate);
 }
@@ -324,14 +407,15 @@
 .philosophyContent h2 {
   margin-top: 14px;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-  font-weight: 600;
   color: var(--ink);
 }
 
 .philosophyContent p {
   margin-top: 8px;
   font-size: 1.02rem;
+  font-weight: 400;
   line-height: 1.85;
   color: var(--slate);
 }
@@ -344,7 +428,6 @@
   padding: 100px 8% 110px;
   display: flex;
   justify-content: center;
-  background: var(--paper);
 }
 
 .ctaBox {
@@ -356,21 +439,22 @@
 }
 
 .ctaBox .sectionTag {
-  color: #f0a39c;
+  color: var(--red-soft);
 }
 
 .ctaBox h2 {
   margin-top: 14px;
   font-family: var(--font-display);
+  font-weight: 700;
   font-size: clamp(2rem, 4vw, 2.9rem);
-  font-weight: 600;
   color: var(--paper);
 }
 
 .ctaBox p {
   margin-top: 16px;
-  color: rgba(246, 243, 236, 0.72);
+  color: rgba(247, 244, 238, 0.72);
   font-size: 1rem;
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -384,9 +468,13 @@
 
 .primaryBtn,
 .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 15px 32px;
   border-radius: 4px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-weight: 700;
   font-size: 0.94rem;
   text-decoration: none;
   transition: transform 0.3s ease, background 0.3s ease;
@@ -405,7 +493,7 @@
 .secondaryBtn {
   background: transparent;
   color: var(--paper);
-  border: 1px solid rgba(246, 243, 236, 0.35);
+  border: 1px solid rgba(247, 244, 238, 0.35);
 }
 
 .secondaryBtn:hover {
@@ -420,7 +508,6 @@
 .footer {
   padding: 50px 20px 42px;
   text-align: center;
-  background: var(--paper);
   border-top: 1px solid var(--line);
 }
 
@@ -437,32 +524,20 @@
 }
 
 /* =======================================
-   RESPONSIVE
-======================================= */
-
-@media (max-width: 720px) {
-  .hero { padding: 50px 16px 70px; }
-  .about, .whySection, .philosophy, .cta { padding-left: 6%; padding-right: 6%; }
-  .whyGrid { grid-template-columns: 1fr; }
-  .ctaBox { padding: 42px 24px; }
-}
-
-
-/* =======================================
-   BACK BUTTON CONTAINER & ACTIONS
+   BACK BUTTON
 ======================================= */
 
 .backContainer {
   position: absolute;
   top: 30px;
   left: 5%;
-  z-index: 50; /* Keeps it above background shapes/overlays */
+  z-index: 50;
 }
 
 .backButton {
   display: inline-flex;
   align-items: center;
-  color: var(--navy);
+  color: var(--ink);
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 500;
@@ -476,22 +551,36 @@
 }
 
 .backButton:hover {
-  color: var(--blue);
-  transform: translateX(-4px); /* Subtle luxury pull effect */
+  color: var(--red);
+  transform: translateX(-4px);
 }
 
-.backButton:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 3px;
-}
+/* =======================================
+   RESPONSIVE
+======================================= */
 
-/* Adjust positioning on small mobile screens */
 @media (max-width: 720px) {
+  .hero {
+    padding: 50px 16px 70px;
+  }
+  .about,
+  .whySection,
+  .philosophy,
+  .cta {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .whyGrid {
+    grid-template-columns: 1fr;
+  }
+  .ctaBox {
+    padding: 42px 24px;
+  }
   .backContainer {
     position: relative;
     top: 0;
     left: 0;
     padding: 24px 6% 0;
-    margin-bottom: -40px; /* Pulls hero grid back into visual balance */
+    margin-bottom: -40px;
   }
 }

@@ -1,76 +1,175 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import styles from "./Navbar.module.css";
+import { useState } from "react";
+import Image from "next/image";
 import { Link } from "react-scroll";
+import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  
-  // Safely initialize state to prevent any hydration flashes or delayed updates
-  const [isScrolled, setIsScrolled] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.scrollY > 20;
-    }
-    return false;
-  });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // If scrollY is greater than 20, turn blue. 
-      // If it's less than 20 (or exactly 0 at the top), turn transparent again!
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    // Check position right away on load
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Duplicated copy block stripped out here perfectly
 
   return (
-    <nav
-      className={`${styles.navbar} ${isScrolled ? styles.scrolled : styles.isTop}`}
-    >
-      <div className={styles.logo}>
-        <div className={styles.logoIcon}>M</div>
-        <span>MANDGE & SONS</span>
+    <nav className={styles.navbar}>
+      {/* Desktop Logo Wrapper */}
+      <div className={styles.logoWrapper}>
+        <Image
+          src="/MainLogo.png"
+          alt="MANDGE & SONS Logo"
+          width={220}
+          height={80}
+          priority
+          className={styles.logoImage}
+        />
       </div>
 
+      {/* Desktop Menu - Increased duration & added smooth easing */}
       <ul className={styles.menu}>
-        <Link to="home" smooth={true} duration={800}>Home</Link>
-        <Link to="about" smooth={true} duration={800} offset={-100}>About</Link>
-        <Link to="ventures" smooth duration={800} offset={-100}>Ventures</Link>
-        <Link to="projects" smooth duration={800} offset={-100}>Projects</Link>
-        <Link to="journey" smooth duration={800} offset={-100}>Journey</Link>
-        <Link to="contact" smooth duration={800} offset={-100}>Contact</Link>
+        <Link
+          to="home"
+          smooth={true}
+          duration={1200}
+          offset={-120}
+          spy={true}
+        >
+          Home
+        </Link>
+        <Link
+          to="about"
+          smooth={true}
+          duration={1200}
+          offset={-10}
+          spy={true}
+        >
+          About
+        </Link>
+        <Link
+          to="ventures"
+          smooth={true}
+          duration={1200}
+          offset={-10}
+          spy={true}
+        >
+          Ventures
+        </Link>
+        <Link
+          to="projects"
+          smooth={true}
+          duration={1200}
+          offset={-5}
+          spy={true}
+        >
+          Projects
+        </Link>
+        <Link
+          to="journey"
+          smooth={true}
+          duration={1200}
+          offset={-10}
+          spy={true}
+        >
+          Journey
+        </Link>
+        <Link
+          to="contact"
+          smooth={true}
+          duration={1200}
+          offset={-4}
+          spy={true}
+        >
+          Contact
+        </Link>
       </ul>
 
+      {/* CTA */}
       <button className={styles.cta}>Get In Touch</button>
 
-      <div className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
+      {/* Hamburger */}
+      <div
+        className={styles.hamburger}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         ☰
       </div>
 
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
+      {/* Mobile Menu - Replaced <a> with smooth <Link> */}
+      <div
+        className={`${styles.mobileMenu} ${
+          menuOpen ? styles.mobileMenuOpen : ""
+        }`}
+      >
         <div className={styles.mobileHeader}>
-          <div className={styles.mobileLogo}>
-            <div className={styles.logoIcon}>M</div>
-            <span>MANDGE & SONS</span>
+          <div className={styles.mobileLogoWrapper}>
+            <Image
+              src="/MainLogo.png"
+              alt="MANDGE & SONS Logo"
+              width={160}
+              height={70}
+              className={styles.logoImage}
+            />
           </div>
-          <button className={styles.closeBtn} onClick={() => setMenuOpen(false)}>✕</button>
+
+          <button
+            className={styles.closeBtn}
+            onClick={() => setMenuOpen(false)}
+          >
+            ✕
+          </button>
         </div>
-        <a href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-        <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-        <a href="#ventures" onClick={() => setMenuOpen(false)}>Ventures</a>
-        <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-        <a href="#journey" onClick={() => setMenuOpen(false)}>Journey</a>
-        <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+
+        <Link
+          to="home"
+          smooth={true}
+          duration={1200}
+          onClick={() => setMenuOpen(false)}
+        >
+          Home
+        </Link>
+        <Link
+          to="about"
+          smooth={true}
+          duration={1200}
+          offset={-100}
+          onClick={() => setMenuOpen(false)}
+        >
+          About
+        </Link>
+        <Link
+          to="ventures"
+          smooth={true}
+          duration={1200}
+          offset={-100}
+          onClick={() => setMenuOpen(false)}
+        >
+          Ventures
+        </Link>
+        <Link
+          to="projects"
+          smooth={true}
+          duration={1200}
+          offset={-100}
+          onClick={() => setMenuOpen(false)}
+        >
+          Projects
+        </Link>
+        <Link
+          to="journey"
+          smooth={true}
+          duration={1200}
+          offset={-100}
+          onClick={() => setMenuOpen(false)}
+        >
+          Journey
+        </Link>
+        <Link
+          to="contact"
+          smooth={true}
+          duration={1200}
+          offset={-100}
+          onClick={() => setMenuOpen(false)}
+        >
+          Contact
+        </Link>
+
         <button className={styles.mobileCta}>Get In Touch</button>
       </div>
     </nav>
