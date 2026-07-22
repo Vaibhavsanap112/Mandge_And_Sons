@@ -115,7 +115,7 @@ export default function Navbar() {
           to="contact"
           smooth={true}
           duration={1200}
-          offset={-100}
+          offset={1900}
           onClick={() => setMenuOpen(false)}
           className={styles.mobileCta}
         >
