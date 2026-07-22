@@ -195,7 +195,7 @@
   max-width: 360px;
   height: 100vh;
 
-  background: linear-gradient(160deg, #04152f 0%, #062048 100%);
+  background: linear-gradient(160deg, #fdfeff 0%, #efebeb 100%);
 
   display: flex;
   flex-direction: column;
@@ -250,7 +250,7 @@
 
   background: rgba(255, 255, 255, 0.08);
 
-  color: white;
+  color: rgb(5, 5, 5);
 
   font-size: 20px;
 
@@ -278,7 +278,7 @@
 
   align-items: center;
 
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
 
   text-decoration: none;
 
@@ -317,33 +317,28 @@
   transform: translateX(0);
 }
 
-/* =========================================================
-   MOBILE CTA
-========================================================= */
-
 .mobileCta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  text-decoration: none !important;
+
   margin-top: auto;
-
   width: 100%;
-
   padding: 15px;
 
   border: none;
-
   border-radius: 14px;
 
   background: linear-gradient(135deg, #d4af37, #f5d76e);
-
   color: #04152f;
 
   font-size: 1rem;
-
   font-weight: 700;
-
   cursor: pointer;
 
   box-shadow: 0 10px 24px rgba(212, 175, 55, 0.25);
-
   transition: 0.3s;
 }
 
@@ -354,7 +349,6 @@
 .mobileCta:active {
   transform: scale(0.97);
 }
-
 /* =========================================================
    MOBILE RESPONSIVE
 ========================================================= */

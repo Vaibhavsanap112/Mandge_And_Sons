@@ -111,7 +111,16 @@ export default function Navbar() {
           Contact
         </Link>
 
-        <button className={styles.mobileCta}>Get In Touch</button>
+       <Link
+          to="contact"
+          smooth={true}
+          duration={1200}
+          offset={-100}
+          onClick={() => setMenuOpen(false)}
+          className={styles.mobileCta}
+        >
+          Get In Touch
+        </Link>
       </div>
     </nav>
   );

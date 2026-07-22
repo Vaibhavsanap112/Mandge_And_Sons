@@ -37,11 +37,9 @@
   display: flex;
   width: max-content;
   gap: 30px;
-  /* Adjust the 25s (25 seconds) to make it faster or slower */
   animation: scrollMarquee 25s linear infinite;
 }
 
-/* Stops the animation immediately when your cursor hovers over ANY part of the slider track */
 .sliderContainer:hover .track {
   animation-play-state: paused;
 }
@@ -52,11 +50,10 @@
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
-  width: 320px; /* Locked explicit width for layout predictability */
+  width: 320px;
   flex-shrink: 0;
 }
 
-/* Individual card interactive behavior */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -76,12 +73,22 @@
   transform: scale(1.4);
 }
 
-/* .card:hover .zoomLogo {
-  transform: scale(1.4);
-} */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  
+  transition: transform 0.6s ease;
+}
 
+/* ==========================================
+   ZOOM OUT HOVER EFFECT (Changed from scale > 1 to < 1)
+=========================================== */
 .card:hover .zoomLogo {
-  transform: scale(1.57); /* 1.4 -> 1.47 gives the same zoom effect */
+  transform: scale(1.2); /* Shrinks back down smoothly from 1.4 */
+}
+
+.card:hover .image:not(.zoomLogo) {
+  transform: scale(0.92); /* Shrinks standard logos on hover */
 }
 
 @media (max-width: 768px) {
@@ -90,28 +97,9 @@
   }
 
   .card:hover .zoomLogo {
-    transform: scale(1.35);
+    transform: scale(1.2);
   }
 }
-
-
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;  
-  
-  transition: transform 0.6s ease;
-}
-
-/* .card:hover .image {
-  transform: scale(1.05);
-} */
-
-.card:hover .image:not(.zoomLogo) {
-  transform: scale(1.08);
-}
-
 
 .content {
   padding: 25px;
@@ -129,7 +117,7 @@
   line-height: 1.6;
   margin-bottom: 24px;
   font-size: 14px;
-  height: 70px; /* Keeps card layout heights strictly uniform */
+  height: 70px;
   overflow: hidden;
 }
 
@@ -156,7 +144,6 @@
     transform: translateX(0);
   }
   100% {
-    /* Moves exactly halfway across the doubled array track for a seamless reset loop */
     transform: translateX(calc(-50% - 15px)); 
   }
 }
@@ -170,7 +157,7 @@
   }
   .track {
     gap: 20px;
-    animation-duration: 18s; /* Speeds up tracking slightly on narrower screens */
+    animation-duration: 18s;
   }
   @keyframes scrollMarquee {
     0% { transform: translateX(0); }
