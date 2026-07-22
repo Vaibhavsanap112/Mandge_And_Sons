@@ -17,10 +17,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
-  /* UPDATED: Focuses on top portion for Desktop so heads stay below the navbar */
-  object-position: top center; 
-  
+
+  /* Desktop unchanged */
+  object-position: top center;
+
   z-index: 1;
 }
 
@@ -39,28 +39,28 @@
   }
 }
 
-/* Mobile Screens */
+/* ================= MOBILE ONLY ================= */
+
 @media (max-width: 768px) {
   .hero {
-    /* Set height to fit the natural video proportion (16:9) on mobile screens */
-    height: auto !important;
-    aspect-ratio: 16 / 9;
     width: 100%;
-    margin-top: 70px !important; /* Kept your exact tuned value */
+    margin-top: 70px !important;
+    height: calc(100vh - 70px);
     overflow: hidden;
     position: relative;
-    background: transparent; /* Removes black container background */
+    background: #000;
   }
 
   .video {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
+
+    /* Vertical video */
     object-fit: cover;
-    /* Focuses on the top portion so heads/people are never cut off */
-    object-position: top center; 
+    object-position: center center;
+
     z-index: 1;
   }
 
