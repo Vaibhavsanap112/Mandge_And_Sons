@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      {/* Desktop Logo Wrapper */}
+      {/* Logo on the Left */}
       <div className={styles.logoWrapper}>
         <Image
           src="/MainLogo.png"
@@ -22,68 +22,44 @@ export default function Navbar() {
         />
       </div>
 
-      {/* Desktop Menu - Increased duration & added smooth easing */}
+      {/* Centered Name for Mobile */}
+      <div className={styles.mobileBrandName}>
+        Mandge & Sons
+      </div>
+
+      {/* Desktop Menu */}
       <ul className={styles.menu}>
-        <Link
-          to="home"
-          smooth={true}
-          duration={1200}
-          offset={-120}
-          spy={true}
-        >
+        <Link to="home" smooth={true} duration={1200} offset={-120} spy={true}>
           Home
         </Link>
-        <Link
-          to="about"
-          smooth={true}
-          duration={1200}
-          offset={-10}
-          spy={true}
-        >
+        <Link to="about" smooth={true} duration={1200} offset={-10} spy={true}>
           About
         </Link>
-        <Link
-          to="ventures"
-          smooth={true}
-          duration={1200}
-          offset={-10}
-          spy={true}
-        >
+        <Link to="ventures" smooth={true} duration={1200} offset={-10} spy={true}>
           Ventures
         </Link>
-        <Link
-          to="projects"
-          smooth={true}
-          duration={1200}
-          offset={-5}
-          spy={true}
-        >
+        <Link to="projects" smooth={true} duration={1200} offset={-5} spy={true}>
           Projects
         </Link>
-        <Link
-          to="journey"
-          smooth={true}
-          duration={1200}
-          offset={-10}
-          spy={true}
-        >
+        <Link to="journey" smooth={true} duration={1200} offset={-10} spy={true}>
           Journey
         </Link>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={1200}
-          offset={-4}
-          spy={true}
-        >
+        <Link to="contact" smooth={true} duration={1200} offset={-4} spy={true}>
           Contact
         </Link>
       </ul>
 
       {/* CTA */}
-      <button className={styles.cta}>Get In Touch</button>
-
-      {/* Hamburger */}
+<Link
+        to="contact"
+        smooth={true}
+        duration={1200}
+        offset={650}
+        className={styles.cta}
+      >
+        Get In Touch
+      </Link>
+      {/* Hamburger on the Right */}
       <div
         className={styles.hamburger}
         onClick={() => setMenuOpen(!menuOpen)}
@@ -91,7 +67,7 @@ export default function Navbar() {
         ☰
       </div>
 
-      {/* Mobile Menu - Replaced <a> with smooth <Link> */}
+      {/* Mobile Menu */}
       <div
         className={`${styles.mobileMenu} ${
           menuOpen ? styles.mobileMenuOpen : ""
@@ -116,57 +92,22 @@ export default function Navbar() {
           </button>
         </div>
 
-        <Link
-          to="home"
-          smooth={true}
-          duration={1200}
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="home" smooth={true} duration={1200} onClick={() => setMenuOpen(false)}>
           Home
         </Link>
-        <Link
-          to="about"
-          smooth={true}
-          duration={1200}
-          offset={-100}
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="about" smooth={true} duration={1200} offset={-100} onClick={() => setMenuOpen(false)}>
           About
         </Link>
-        <Link
-          to="ventures"
-          smooth={true}
-          duration={1200}
-          offset={-100}
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="ventures" smooth={true} duration={1200} offset={-100} onClick={() => setMenuOpen(false)}>
           Ventures
         </Link>
-        <Link
-          to="projects"
-          smooth={true}
-          duration={1200}
-          offset={-100}
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="projects" smooth={true} duration={1200} offset={-100} onClick={() => setMenuOpen(false)}>
           Projects
         </Link>
-        <Link
-          to="journey"
-          smooth={true}
-          duration={1200}
-          offset={-100}
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="journey" smooth={true} duration={1200} offset={-100} onClick={() => setMenuOpen(false)}>
           Journey
         </Link>
-        <Link
-          to="contact"
-          smooth={true}
-          duration={1200}
-          offset={-100}
-          onClick={() => setMenuOpen(false)}
-        >
+        <Link to="contact" smooth={true} duration={1200} offset={-100} onClick={() => setMenuOpen(false)}>
           Contact
         </Link>
 

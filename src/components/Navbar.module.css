@@ -11,7 +11,7 @@
 
   padding: 0 5%;
 
-  background: #04152f; /* Corporate Blue */
+  background: #ffffff; /* Corporate Blue */
 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 
@@ -59,7 +59,7 @@
 
 .menu a,
 .menu [role="button"] {
-  color: #ffffff;
+  color: #040404;
 
   text-decoration: none;
   cursor: pointer;
@@ -142,7 +142,7 @@
 
   font-size: 30px;
 
-  color: #ffffff; /* Fixed: White icon so it stands out on dark background */
+  color: #000000; /* Fixed: White icon so it stands out on dark background */
 
   cursor: pointer;
 }
@@ -399,4 +399,39 @@
   height: 85px !important; /* Increase from ~40px to 65px (or 70px) */
   width: auto !important;
   object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE CENTERED BRAND NAME (Keeps logo left & hamburger right)
+========================================================= */
+.mobileBrandName {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .mobileBrandName {
+    display: block;
+    font-family: Glacial Indifference Bold;
+    font-size: 1.45rem;
+    font-weight: 950;
+    color: #04152f;
+    position: absolute;
+    left: 53%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    pointer-events: none;
+  }
 }

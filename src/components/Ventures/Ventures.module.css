@@ -76,8 +76,12 @@
   transform: scale(1.4);
 }
 
-.card:hover .zoomLogo {
+/* .card:hover .zoomLogo {
   transform: scale(1.4);
+} */
+
+.card:hover .zoomLogo {
+  transform: scale(1.57); /* 1.4 -> 1.47 gives the same zoom effect */
 }
 
 @media (max-width: 768px) {
@@ -100,9 +104,14 @@
   transition: transform 0.6s ease;
 }
 
-.card:hover .image {
+/* .card:hover .image {
   transform: scale(1.05);
+} */
+
+.card:hover .image:not(.zoomLogo) {
+  transform: scale(1.08);
 }
+
 
 .content {
   padding: 25px;
@@ -171,4 +180,3 @@
     width: 280px;
   }
 }
-
