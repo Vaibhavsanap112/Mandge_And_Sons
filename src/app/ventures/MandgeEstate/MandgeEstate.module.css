@@ -439,10 +439,10 @@
 .about {
   padding: 110px 6% 100px;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 0.9fr 1.1fr; /* Expanded right column for the image */
   gap: 60px;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1350px; /* Increased overall container max width */
   margin: 0 auto;
 }
 
@@ -492,6 +492,16 @@
 .isoWrap {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 780px; /* Increased width to make the image larger */
+  margin: 0 auto;
+}
+
+.isoWrap img {
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: auto;
 }
 
 .isoSvg {
